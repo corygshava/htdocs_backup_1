@@ -1,0 +1,36 @@
+[done]----------------------------------------------------------------------------
+make algo for register user server ops
+make algo for manage farmers server ops
+make algo for systemdata server ops
+make algo for new intake server ops
+modify runtime for manage farmers
+make algo for intakes server ops
+make algo for send to processing server ops
+
+make algo for processing queue server ops
+make algo for inventory server ops
+make algo for deposits server ops
+make algo for sell coffee server ops
+make algo for sales records server ops
+make algo for view users server ops
+make algo for logout server ops
+
+ensure blueprint is set up and chatty ready
+change all to .php
+
+add server ops for manage farmers
+add server ops for systemdata
+add server ops for intakes
+add server ops for send to processing
+add server ops for processing queue
+add server ops for inventory
+add server ops for deposits
+add server ops for sell coffee
+add server ops for sales records
+add server ops for view users
+add server ops for logout
+
+get new images
+
+[undone]--------------------------------------------------------------------------
+get a new loader

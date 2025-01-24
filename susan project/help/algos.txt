@@ -1,0 +1,384 @@
+[complete]------------------------------------------------------------------------
+
+	connect algo
+	    write a php code that handles a database connection. make it that it checks if the specified database exists and creates it if it doesnt
+
+	checksetup algo
+	    consider{
+	        all database connection is handled by a file at "actions/connect.php"
+	    }
+	    write a php code that checks if tables called Farmers, Intakes, Users, Inprocessing, Inventory, Deposits and Sales exist in a database.
+	    if they dont the code creates the tables with these fields
+			Farmers
+				Fields
+					Id int primary key auto_increment
+					Name text
+					Phone_contact int
+					email text
+					intakes int
+					seeds_brought int
+					location text
+					date_added datetime
+
+			Intakes
+				Fields
+					Id int primary key auto_increment
+					Farmer_id int
+					Amt_brought int
+					Amt_paid decimal
+					Date_added datetime
+
+			Users
+				Fields
+					Id int primary key auto_increment
+					Username text
+					Password varchar(30)
+					Date_added datetime
+
+			Inprocessing
+				fields
+					Id int primary key auto_increment
+					Date_added datetime
+					Amount int
+					Status text
+					Date_cleared datetime
+
+			Inventory
+				Fields
+					Id int primary key auto_increment
+					Item_name text
+					Item_amount decimal
+
+			Deposits
+				Fields
+					Id int primary key auto_increment
+					Transaction_code text
+					Deposit_amount int
+					Deposit_date datetime
+
+			Sales
+				Fields
+					Id int primary key auto_increment
+					Transaction_code text
+					Amount_sold decimal
+					Amount_paid int
+					Date_of_sale datetime
+
+			sysdata
+				fields
+					id int primary key auto_increment
+					itemname text
+					itemvalue decimal
+					description text
+					date_updated datetime
+	    
+	    consider {
+	        the code will check for and make the tables one by one, not as a single operation,
+			while creating sysdata add the following as the default records {
+				("price_per_kilo",250.00,"price to pay for 1 kilo of coffee seeds",(current date and time)),
+				("sale_per_kilo",450.00,"price to sell 1 kilo of coffee",(current date and time))
+			},
+			while creating users add the following as the default records {
+				("admin","123",(current date and time))
+			}
+			while creating inventory add the following as the default records {
+				("coffee_seeds",0),
+				("coffee",0)
+			}
+		}
+
+	login code
+	    consider {
+	        all database connection is handled by a file at "connect.php"
+	        the table users exists in a connected database and has the fields (username and password)
+	        variables for (username,password) have been passed via POST
+	        the code will inform the user if the username exists in the respective table and 
+	        if the password is correct at separate points in the code
+	    }
+
+	    write a php code that will verify if theres a record in users that has the entered username and password combination,
+	    provided the username and password combination exists a cookie called currentusername is to be set as 
+	    the entered username
+
+	manage farmers runtime
+		consider{
+			heres a table called farmers,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+		}
+		write a php code that shows all records in the farmers table on a table.
+		also add a row in the end with a single cell saying "thats all"
+
+	add farmer code
+		consider{
+			heres a table called farmers with these fields (fname,phonenumber,email,location,date_added),
+			data values for (fname,fcontact,femail,flocation) have been passed via post,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that will take the passed post variables and update the farmers table in this format (fname,fcontact,femail,flocation,(the current date and time)) as values for (fname, phonenumber, email, location, date_added) respectively. make it to have appropriate tests for whether or not the post variables have been passed. use a mysqli_escape_string() to sanitise the variables to prevent sql injection.
+
+	update farmer code
+		consider{
+			heres a table called farmers with these fields (fname,phonenumber,email,location,date_added),
+			data values for (f_id,fname,fcontact,femail,flocation) have been passed via post,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that will take the passed post variables and update the farmers table in this format (fname,fcontact,femail,flocation,(the current date and time)) as values for (fname, phonenumber, email, location, date_added) respectively in the record with the corresponding f_id. make it to have appropriate tests for whether or not the post variables have been passed. use a function to sanitise the variables to prevent sql injection.
+
+	delete farmer
+	    consider {
+			all database connection is handled by a file at "connect.php"
+			the table farmers exists in a connected database
+			the value for f_id has been passed via post
+			the connection variable is conn
+	    }
+	    write a php code that will check if the post value has been passed. if it has{
+		    write a php code that deletes the contents of a record in users where the id field is (f_id)
+		    if the query works make it alert the user "farmer deleted" otherwise "farmer deleting failed"
+		}
+
+	show system data runtime
+		consider{
+			heres a table called sysdata with these fields (id,itemname,itemvalue),
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+		}
+		write a php code that shows all records in the sysdata table on a table.
+		also add a row in the end with a single cell saying "-- thats all --"
+
+	new intake runtime
+		consider{
+			heres a table called farmers with these field (id,Name),
+			theres a table called sysdata with these fields (itemname,itemvalue),
+			theres a table called deposits with field (depo_amt) and sales table with (amt_recieved) and intakes table with (amt_paid),
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+			all values are to be stored in variables for later use
+		}
+		write a php code that does the following{
+			it takes the itemvalue of the record whose itemname is "price_per_kilo" and stores it as (price),
+			it does a query to find the total sum of depo_amt in deposits (stored as T_depos), total sum of amt_recieved in sales (T_sales) and total sum of amt_paid in intakes (T_paid),
+			it then calculates available balance as ((T_depos + T_sales) - T_paid),
+			it then takes all values in id,name from the farmers table and saves them in strings (different strings for each separating each value with a comma)
+		}
+
+	update deposits table
+		consider{
+			theres a table called deposits with the fields (transactioncode,depo_amt,date_done)
+			values for (tcode,damt) have been passed via post,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that checks if the post variables have been passed. if they have{
+			it adds a new record to the deposits table in the format (tcode,damt,(current date and time)) as values for (transactioncode,depo_amt,date_done)
+		}
+
+	add intake code
+		consider{
+			heres a table called intakes with these fields (in_serial,farmer_id,amt_brought,amt_paid,date_added),
+			data values for (f_id,in_amt) have been passed via post,
+			heres a table called farmers with these field (id,intakes, seedsbrought),
+			theres a table called sysdata with these fields (itemname,itemvalue),
+			theres a table called inventory with these fields (itemname,itemamt)
+			theres a table called deposits with field (depo_amt) and sales table with (amt_recieved)
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+
+		write a php code that checks if the post variables have been passed, if they have{
+			make a query that checks if theres a record in the farmers table where the id is the same as 'f_id'. if there is{
+				it takes the value of itemvalue in sysdata table for the record whose itemname value is "price_per_kilo" and stores it as theprice (its stored as a number),
+				it then makes a query that gets the sum of all values in the depo_amt field of deposits (saved as deposits) and the sum of all values in the amt_recieved field of sales table (saved as tsales)and the sum of all values in the amt_paid field of intakes (saved as tpaid),
+				it then calculates the available balance as ((deposits + tsales) - tpaid),
+				then it checks if the balance is enough (if balance >= (in_amt * theprice)). if it is{
+					it then takes the values of (intakes,seedsbrought) in the record found in the farmers table and saves them as (fintakes,seedsamt).
+					it then adds 1 to fintakes and adds (in_amt) to seedsbrought,
+					it then updates the farmers table with the new values,
+					it then adds a new record to the intakes table in this format ((randomly generated 7 letter all caps string),f_id,in_amt,(in_amt * theprice),(the current date and time)) as values for (in_serial,farmer_id,amt_brought,amt_paid,date_added),
+					it then adds (in_amt) to the value in itemamt field of inventory where the value for itemname is "coffee_seeds",
+					once its all succeeded the code tells the user that it completed successfully
+				} else {
+					it tells the user that there is not enough cash
+				}
+			} otherwise {
+				it informs the user that the farmer records dont exist on the database
+			}
+		}
+
+	show intakes
+		consider{
+			heres a table called intakes with these fields (in_serial,farmer_id,amt_brought,amt_paid,date_added),
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+		}
+		write a php code that shows all records in the intakes table on a table.
+		also add a row in the end with a single cell saying "-- thats all --"
+
+	send to processing code
+		consider{
+			theres a table called inventory with these fields (itemname,itemamt),
+			theres a table called in_processing with the fields (date_added,amount,status),
+			values for (to_send) have been passed via post,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that checks if the value for (to_send) has been passed. if it has{
+			it then takes the value of itemamt in the inventory table whose itemname is "coffee_seeds" and stores it as (availableAmt),
+			then it checks if theres enough (availableAmt >= to_send). if there is{
+				it then updates the value of itemamt in the inventory table whose itemname is "coffee_seeds" and sets the new value to be (availableAmt - to_send),
+				it adds a new record to the in_processing table as ((current date and time),(to_send),"in processing") as values for (date_added,amount,status),
+				it then informs the user that the code was run successfully
+			}
+		}
+
+	send to processing runtime
+		consider{
+			theres a table called inventory with these fields (id,itemname,itemamt),
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+		}
+		write a php code that takes the value of itemamt in inventory where the itemname is "coffee_seeds" and stores it as (maxweight)
+
+	show processing queue
+		consider{
+			heres a table called in_processing,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+		}
+		write a php code that shows all records in the in_processing table on a table.
+		also add a row in the end with a single cell saying "-- thats all --"
+
+	update processing state
+		consider{
+			theres a table called inventory with these fields (itemname,itemamt),
+			theres a table called inprocessing with the fields (Id,Status,Date_cleared,Amount),
+			values for (p_id,newstate) have been passed via get,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that checks if the get variables have been passed. if they have{
+			it checks the in_processing table to see if theres a record with the passed p_id. if there is{
+				it checks if newstate is "lost". if it is{
+					it updates the record whose id is p_id setting its status to "lost".
+				} otherwise {
+					it update the record whose id is p_id setting its status to "complete",
+					it then takes the value of amount in the record and stores it as (to_add),
+					it then updates the value of itemamt in the inventory table where itemname is "coffee" to be ((the current value) + (to_add)).
+					it then informs the user that it completed successfully
+				}
+			}
+		}
+
+	show inventory
+		consider{
+			heres a table called in_processing with fields (id,amount,status),
+			theres a table called inventory with fields (id,itemname,itemamt),
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+			the values are to be stored as variables for later use
+		}
+		write a php code that gets the record in inventory whose itemname is "coffee_seeds" and whose itemname is "coffee",
+		they will be stored as (coffee_seeds and coffee respectively),
+		the code then counts the sum of amount in the in_processing table where status is "lost" and where status is "complete" and where status is "pending" (separately not as a single number),
+		they will be stored as (coffee_lost, coffee_complete and coffee_processing)
+
+	new sale runtime
+		consider{
+			theres a table called sysdata with these fields (itemname,itemvalue),
+			theres a table called inventory with these fields (itemname,itemamt),
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+			all values are to be stored in variables for later use
+		}
+		write a php code that does the following{
+			it takes the itemvalue of the record whose itemname is "sale_per_kilo" and stores it as (price),
+			it does a query to find the itemamt of the record whose itemname is "coffee" and stores it as (avl_coffee)
+		}
+
+	new user
+		consider {
+		    all database connection is handled by a file at "connect.php",
+		    the table users exists in a connected database and has the fields (username and userpassword),
+		    variables for (uname,upass) have been passed via POST
+		}
+		write a php code that will check if the entered username already exists in the users table.
+		    if it does the code should stop excecuting and tell the user that he should try a different username
+		    if it doesnt add the new record using the passed data and inform the user if the process was successful
+
+	update sales table
+		consider{
+			theres a table called sales with the fields (transactioncode,amt_sold,amt_recieved,date_done)
+			theres a table called sysdata with these fields (itemname,itemvalue),
+			theres a table called inventory with these fields (itemname,itemamt),
+			values for (tcode,amt_sold) have been passed via post,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that checks if the post variables have been passed. if they have{
+			it takes the value of itemvalue in sysdata table for the record whose itemname value is "sale_per_kilo" and stores it as thesale (its stored as a number),
+			it takes the value of itemamt in the inventory table whose itemname is "coffee" and stores it as (availableAmt),
+			it then checks if theres enough (availableAmt >= amt_sold). if there is{
+				it then updates the value of itemamt in inventory whose itemname is "coffee" by setting its new value to be ((current value) - amt_sold),
+				then a new record is added to the sales table in the format (tcode,amt_sold,(amt_sold * thesale),(the current date and time)) as values for (transactioncode,amt_sold,amt_recieved,date_done),
+				then the code informs the user that it completed successfully
+			} else {
+				the code informs the user that there is not enough coffee in the inventory
+			}
+		}
+
+	show deposits
+		consider{
+			theres a table called deposits with the fields (transaction_code,depo_amt,date_done)
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that shows all records in the deposits table on a table.
+		also add a row in the end with a single cell saying "-- thats all --"
+
+	show sales
+		consider{
+			theres a table called sales,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that shows all records in the sales table on a table.
+		also add a row in the end with a single cell saying "-- thats all --"
+
+	update system data
+		consider{
+			theres a table called sysdata with these fields (itemname,itemvalue),
+			values for (newval,tochange) have been passed via post,
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn
+		}
+		write a php code that checks if the post values have been passed. if they have{
+			the code updates the itemvalue field in sysdata table where the value for itemname is (tochange) to become (newval).
+			the code then informs the user if the operation was successful
+		}
+
+[actions]-------------------------------------------------------------------------
+
+
+[runtime ops]---------------------------------------------------------------------
+
+	admin summary
+		consider{
+			theres a table called inprocessing with fields (Sd,Amount,Status),
+			theres a table called farmers,deposits with the field (Depo_amt),sales with the field (Amt_paid) and intakes  with field (Amt_brought,Amt_paid)
+			theres a table called inventory with fields (id,itemname,itemamt),
+			theres a file connect.php on the same folder that handles database connection,
+			the connection variable is conn,
+			the values are to be stored as variables for later use
+		}
+		it then makes a query that gets the sum of all values in the depo_amt field of deposits (saved as deposits) and the sum of all values in the amt_recieved field of sales table (saved as tsales)and the sum of all values in the amt_paid field of intakes (saved as tpaid),
+		it then calculates the available balance as ((deposits + tsales) - tpaid),
+		it then calculates total sales as tsales,
+		it then gets the itemamt value in inventory where itemname is "coffee_seeds" and stores it as (cofee_seeds),
+		it then gets the itemamt value in inventory where itemname is "coffee" and stores it as (cofee_powder),
+		the code then counts the sum of amount in the in_processing table where status is "lost" and where status is "complete" and where status is "pending" (separately not as a single number),
+		they will be stored as (coffee_lost, coffee_complete and coffee_processing),
+		the code then counts the number of records in farmers,deposits,sales and intakes and stores them as (count_farmers,count_deposits,count_sales,count_sales)
+		the code then calculates the sum of amt_brought and amt_paid in intakes (saved as T_brought,T_paid)
+

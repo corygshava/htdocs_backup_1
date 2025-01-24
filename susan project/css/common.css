@@ -1,0 +1,113 @@
+/* holds reusable classes and most css variables */
+
+:root{
+	--primarycolor: #10b867;
+	--textcolor: #222;
+	--bodybg: #fff;
+	--panelbg: #eee;
+	--themeshadow: 0 0 15px rgba(0,0,0,0.1);
+	--roundness: 7px;
+	--rounder: 15px;
+}
+*{
+	transition: 0.3s ease-out;
+}
+body{
+	background-color: var(--bodybg);
+	color: var(--textcolor);
+}
+h2,
+h3{
+	font-weight: 700;
+}
+
+/* common reusables */
+.pritxt{
+	color: var(--primarycolor);
+}
+
+.conbg{
+	background-color: var(--panelbg);
+}
+
+.themebtn{
+	border: none;
+	padding: 5px 25px;
+	display: inline-block;
+	border-radius: var(--roundness);
+	cursor: alias;
+	background-color: var(--textcolor);
+	color: var(--bodybg);
+}
+.themebtn:hover{
+	background-color: var(--primarycolor);
+}
+.themetxt{
+	color: var(--primarycolor);
+}
+
+/* responsive inputs */
+
+.flexresponsive{
+	display: flex;
+	flex-wrap: wrap;
+}
+.flexresponsive.col{
+	flex-direction: column;
+}
+.flexresponsive.row{
+	flex-direction: row;
+}
+.flexresponsive .mobi{
+	flex: 1 0 300px;
+}
+
+/* modal form */
+
+.modalform{
+	display: flex;
+	flex-direction: column;
+	place-content: center;
+	place-items: center;
+	min-height: 100vh;
+}
+.modalform .theform{
+	padding: 12px;
+	background-color: var(--bodybg);
+	border-radius: var(--roundness);
+	width: 40%;
+	min-width: 300px;
+}
+.modalform .theform input{
+	width: 100%;
+	display: inline-block;
+}
+
+.optbtn{
+	display: inline-block;
+	border-radius: 15px;
+	padding: 3px 12px;
+	border:none;
+	background-color: #222;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+	margin: 4px 7px;
+}
+.optbtn:hover{
+	background-color: var(--primarycolor);
+	color: #fff;
+	scale: 1.1;
+}
+
+.container{
+	padding: 15px 20px;
+}
+
+.title{
+	padding: 20px;
+}
+
+.trans{
+	opacity: 0;
+}
