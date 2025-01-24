@@ -1,0 +1,58 @@
+:root{
+    --primaryColor : #007bff;
+    --secondaryColor : #e6e6e6;
+    --textColor : #eee;
+    --textSecondaryColor : #222;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    /* it will be at least 100vh, it will prefer 100vh (100% height), and it will not exceed 1200px */
+    height: clamp(700px,100vh,760px);
+}
+header {
+    background-color: var(--secondaryColor);
+    color: var(--textSecondaryColor);
+    padding: 10px 15px;
+    text-align: center;
+}
+footer{
+    padding: 25px;
+}
+
+.content {
+	display: grid;
+	place-items: center;
+	height: 80vh;
+	width: 100%;
+}
+.timecode{
+    text-align: center;
+}
+.timecode .timetxt {
+	padding: 15px;
+	margin: 12px 20px;
+	border-radius: 12px;
+	background-color: #ddd;
+	display: inline-block;
+	width: 160px;
+	text-align: center;
+    font-size: 25px;
+}
+
+@media screen and (max-width:600px) {
+    .container{
+        width: 80%;
+        margin: 20px auto 70px auto;
+    }
+}
+@media screen and (min-width:600px) {
+    .container{
+        width: 35%;
+        margin: 20px auto 70px auto;
+    }
+}

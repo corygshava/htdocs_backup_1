@@ -1,0 +1,243 @@
+:root {
+    --themecolor: #007bff;
+    --textcolor: #fff;
+    --bgcolor: #141414;
+    --success-text: #0ce63f;
+    --error-text: #eb0c22;
+    --panelbg: #1a1a1a;
+    --inputfocusbg: rgb(44,44,44);
+
+    --roundness: 15px;
+    --minwidth: 300px;
+}
+
+* {
+    box-sizing: border-box;
+    transition: 0.3s ease-out;
+}
+body {
+    margin: 0;
+    font-family: 'raleway',Arial, sans-serif;
+}
+a{
+    text-decoration: none;
+}
+
+.content {
+    background-color: var(--bgcolor);
+    color: var(--textcolor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+}
+
+.formholder,.holder {
+    background-color: var(--panelbg);
+    border-radius: var(--roundness);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: var(--minwidth);
+    text-align: center;
+}
+.formholder{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+.formholder form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formholder input {
+    display: inline-block;
+    margin: 20px auto;
+    border: 2px solid var(--themecolor);
+    padding: 10px 15px;
+    border-radius: var(--roundness);
+    cursor: pointer;
+    width: 80%;
+    background-color: transparent;
+    color: var(--textcolor);
+}
+.formholder input:focus {
+    scale: 1.1;
+    background-color: var(--inputfocusbg);
+    outline: none;
+    box-shadow: 0 0 12px var(--themecolor);
+}
+.formholder button {
+    background-color: var(--themecolor);
+    color: #fff;
+    border: none;
+    border-radius: var(--roundness);
+    padding: 13px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    max-width: 80%;
+    display: inline-block;
+}
+.formholder button:hover {
+    background-color: #0056b3;
+}
+
+.progress {
+    width: 100%;
+    background-color: #51515142;
+    height: 0;
+    border-radius: var(--roundness);
+    overflow: hidden;
+    margin: 20px 0;
+}
+.progress-bar {
+    height: 100%;
+    width: 0;
+    /* background-color: var(--themecolor); */
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    font-size: 14px;
+    transition: width 0.4s;
+    background-image: linear-gradient(45deg, #00ff8e, var(--themecolor));
+}
+
+.reporter{
+    padding: 2px 22px;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: var(--roundness);
+    font-size: 14px;
+    text-align: center;
+    max-width: 100%;
+    word-wrap: break-word;
+    font-weight: 700;
+}
+#output.success {
+    color: var(--success-text);
+}
+#output.error {
+    color: var(--error-text);
+}
+
+/* nav */
+
+.options{
+    position: fixed;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+}
+.options .menu{
+    display: inline-flex;
+    max-width: 300px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.678);
+    border-radius: var(--roundness);
+    overflow: hidden;
+    background-color: var(--panelbg);
+}
+.options .menu a{
+    display: inline-block;
+    padding: 15px;
+    color: var(--textcolor) !important;
+}
+.options .menu a:hover{
+    background-color: #555;
+}
+.options .menu a.current{
+    color: #fff !important;
+    background-color: var(--themecolor);
+}
+
+/* uploads page */
+.holder{
+    min-width: var(--minwidth);
+    width: 80%;
+    margin: 120px 0;
+}
+.holder .heading{
+    padding: 15px;
+    text-align: center;
+}
+.holder .searcher{
+/*    display: flex;*/
+/*    flex-direction: row;*/
+    padding: 8px 12px;
+    gap: 15px;
+    width: 100%;
+}
+.holder .searcher .searchbox{
+    width: 100%;
+    display: inline-block;
+}
+.holder .searcher input{
+    padding: 17px 20px;
+    display: inline-block;
+    width: 80%;
+    border-radius: var(--roundness);
+    border: 1px solid var(--themecolor);
+    background-color: var(--panelbg);
+    color: var(--textcolor);
+}
+.holder .searcher input:focus{
+    scale: 1.02;
+    background-color: var(--inputfocusbg);
+    outline: none;
+    box-shadow: 0 0 12px var(--themecolor);
+}
+.holder .searcher button{
+    padding: 12px 20px;
+    background-color: transparent;
+    border: 1px solid var(--themecolor);
+    border-radius: var(--roundness);
+    color: var(--themecolor);
+    cursor: pointer;
+}
+.holder .searcher button:hover{
+    scale: 1.1;
+    background-color: var(--themecolor);
+    color: var(--textcolor);
+}
+.holder .items{
+    padding: 15px 12px;
+}
+.holder .items .list-item{
+    padding: 12px;
+    margin: 7px auto;
+    width: 80%;
+    display: inline-block;
+    text-align: left;
+/*    flex-direction:row;*/
+/*    gap: 20px;*/
+    /*    border-bottom: 1px solid #777;*/
+    color: var(--textcolor);
+    background-color: #222222;
+    border-radius: var(--roundness);
+}
+.holder .items .list-item:hover{
+    translate: 0 -5px;
+    background-color: #333333;
+}
+.holder .items .list-item.last{
+    border: none;
+    background-color: transparent;
+}
+.holder .items .list-item.last:hover{
+    background-color: transparent;
+}
+.holder .items .list-item .tuttxt{
+    padding: 3px 12px;
+    border-radius: 5px;
+    background-color: #000000aa;
+    color: var(--textcolor);
+    box-shadow: 0 0 12px var(--themecolor);
+    opacity: 0;
+}
+.holder .items .list-item:hover .tuttxt{
+    opacity: 1;
+}

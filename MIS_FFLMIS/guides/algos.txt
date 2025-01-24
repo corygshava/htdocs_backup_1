@@ -1,0 +1,12 @@
+monitor delivery
+	make it that once every ping
+	[for client]
+		it checks if the delivery is finished and redirects to the deliveries page if it has
+	[for driver]
+		it checks if the delivery has been marked as failed and redirects to the deliveries page
+
+every page
+	make it that if the driver has a pending dellivery they are locked to the delivery screen and cant use any other feature until the job is done
+
+delivery job
+	make it that the driver gets a cash reward once a job is finished (make a simple economy)

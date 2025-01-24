@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include Leaflet.js library -->
+    <link rel="stylesheet" href="js/leaflet/leaflet.css">
+    <script src="js/leaflet/leaflet.js"></script>
+</head>
+<body>
+    <div id="themap" style="width: 500px; height: 400px;"></div>
+    
+    <script>
+        // Define global variables
+        var dummy = document.getElementById('dummy'); // Change 'dummy' to the actual ID of your input element
+        var curmapinput = document.getElementById('curmapinput'); // Change 'curmapinput' to the actual ID of your input element
+        var map;
+        var requesttype = 0; // Default to 0 for pickup location
+        var markers = [];
+
+        // Function to initialize the map
+        function initializeMap() {
+            if (!map) {
+                map = L.map('themap').setView([0, 0], 10); // Initial map view, change coordinates and zoom level as needed
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map); // Add a tile layer (you can use any tile provider)
+
+                // Add a click listener to the map
+                map.on('click', function (e) {
+                    var latitude = e.latlng.lat;
+                    var longitude = e.latlng.lng;
+                    
+                    var tooltipText = requesttype === 0 ? 'Your pickup location' : 'Your destination';
+                    
+                    // Check if there is a marker on the map
+                    var markerIndex = markers.length > 0 ? markers.length - 1 : 0;
+                    
+                    if (markers[markerIndex]) {
+                        // If a marker exists, modify its position and tooltip
+                        markers[markerIndex].setLatLng([latitude, longitude]);
+                        markers[markerIndex].setTooltipContent(tooltipText);
+                    } else {
+                        // If no marker exists, create a new one at the clicked location
+                        var marker = L.marker([latitude, longitude], { tooltip: tooltipText }).addTo(map);
+                        markers.push(marker);
+                    }
+
+                    // Update global variables
+                    dummy.value = latitude + ',' + longitude;
+                    curmapinput.value = latitude + ',' + longitude;
+                });
+            }
+        }
+
+        // Call the initializeMap function to set up the map
+        initializeMap();
+    </script>
+</body>
+</html>

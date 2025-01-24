@@ -1,0 +1,45 @@
+
+@import url("S-auto/autonavs.css")
+@import url("S-auto/autobuttons.css")
+@import url("S-auto/autoforms.css")
+
+
+a{color:inherit;}
+/*color classes*/
+.s-safe{color:#30b069;}.s-premium{color: #2492fc;},.s-soil{color: #d72b2b;}
+
+.s-safe-mark{background-color: #30b069;}.s-premium-mark{background-color: #2492fc;}.s-soil-mark{background-color: #d72b2b;}
+/*end color classes*/
+
+
+.s-automodal-i{background: #eeeeee;border-radius: 5px;animation: 0.4s s-zoom-in ease-out;}
+.s-automodal-ii{background: #eeeeee;border-radius: 10px 0px;animation: 0.4s s-faded ease-out;}
+
+.s-autoinput-i{border-radius: 5px;border:2px solid #c2bbbb;padding: 5px;width: 100%;background: transparent;margin: 15px;}
+
+.s-autotable-i{padding: 15px;box-shadow: 3px 3px 15px #bbbbbb;border-radius: 5px;overflow: hidden;empty-cells: show;}
+
+.s-autotable-i th{background: #9f5edb;padding: 15px;}.s-autotable-i td{padding: 15px;}.s-autotable-i .important{padding: 3px;background: brown;border-radius: 3px;color: #fdfdfd;}.s-autotable-i .more{display: block;width: 100%;}
+.test{background: #9f5edb;padding: 12px;}
+
+.s-autoform-i input:focus,.s-autoinput-i textarea:focus{border:2px solid gold;}
+.s-autoform-ii input:focus,.s-autoinput-ii textarea:focus{border-bottom:2px solid #f88a2d;}
+
+.s-autoinput-i:focus{border:2px solid #f9c668;}
+.s-autoinput-ii:focus{border:2px solid #f9c668;}
+
+.s-autotable-i tr:hover{background: #dddddd;}
+
+@media only screen and (max-width: 760px){
+	.s-autoform-i,.s-autoform-ii,.s-autoform-iii,.s-autotable-i{width:95%;margin: 20px 2.5%;}
+	.s-automodal-ii{width: 95%;margin:25px 2.5%;}
+}
+@media only screen and (min-width: 760px){
+	.s-autoform-i,.s-autoform-ii,.s-autoform-iii,.s-autotable-i{width:80%;margin: 20px 10%;}
+	.s-automodal-ii{width: 70%;margin:5% 15%;}
+}
+@media only screen and (min-width: 950px){
+	.s-autoform-i,.s-autoform-ii,.s-autoform-iii,{width:60%;margin: 20px 15%;}
+	.s-automodal-ii{width:60%;margin:4% 20%;}
+	.s-automodal-i,.s-autotable-i{width:50%;margin: 25px 25%;}
+}

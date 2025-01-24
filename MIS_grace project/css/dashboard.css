@@ -1,0 +1,41 @@
+
+.content{
+    padding: 0 0 76px 0;
+}
+/*
+.content .menu{
+    min-width: 250px;
+    max-width: 400px;
+    width: 75%;
+    text-align: center;
+    padding: 25px;
+}
+.content .menu a{
+    padding: 25px;
+    display: block;
+} */
+
+.summary{
+    padding: 20px 30px;
+    color: #fff;
+    text-align: center;
+    background-image: linear-gradient(80deg,var(--primaryColor),var(--secondaryColor));
+}
+.summary #thecash{
+    font-weight: 800;
+    font-size: 45px;
+}
+.summary .w3-row .report{
+    padding: 7px 15px;
+}
+
+.menu{
+    padding: 25px 35px;
+}
+.menu a{
+    display: inline-block;
+    padding: 7px 0;
+}
+.menu a:hover{
+    color: var(--primaryColor);
+}

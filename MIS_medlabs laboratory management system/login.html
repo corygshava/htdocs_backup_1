@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/iconic.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>user login</title>
+</head>
+<body>
+    <nav class="w3-bar w3-white w3-card">
+        <a href="Javascript:history.back()" class="w3-bar-item pagetitle"><i class="icon icon-chevron-left"></i></a>
+        <a class="w3-bar-item pagetitle">login page</a>
+    </nav>
+
+    <header class="headingpanel w3-center w3-grey w3-text-white w3-hide">
+        <h2 class="title">Patient Records Management Information System</h2><br>
+    </header>
+
+    <!-- in case there was an error logging in -->
+    <div class="main" id="newuser">
+        <div class="login_form w3-center floating-section">
+            <div class="w3-display-container display">
+                <img src="" alt="image of Doctor smiling" class="display-myimg random-image-ls">
+                <div class="w3-animate-opacity">
+                    <b class="subtxt">User login</b>
+                    <!-- what error happened -->
+                    <span class="errtext w3-text-red"><b></b></span>
+                </div>
+            </div>
+
+            <form action="login_handler.php" class="w3-center myform" method="post">
+
+                <div class="input_holder">
+                    <label for="operation">What do you want to do</label>
+                    <br>
+                    <select name="operation" id="operationInput">
+                        <option value="signup">make new account</option>
+                        <option value="login" selected>log into your account</option>
+                    </select>
+                </div>
+
+                <!--
+                <div class="input_holder w3-hide">
+                    <label for="operation">Which kind of user are you</label>
+                    <br>
+                    <select name="usertype">
+                        <option value="doctor">doctor</option>
+                        <option value="normal" selected="true">Lab technician</option>
+                    </select>
+                </div>
+                -->
+
+                <div class="input_holder">
+                    <label for="username">enter username</label>
+                    <br>
+                    <input type="text" name="username" placeholder="enter username here" required>
+                </div>
+
+                <div class="input_holder">
+                    <label for="password">enter password</label>
+                    <br>
+                    <input type="password" name="password" placeholder="enter password here" required>
+                </div>
+
+                <div class="input_holder">
+                    <button type="reset" class="w3-hide w3-btn w3-hover-blue w3-grey themeBtn">reset data</button>
+                    <button type="submit" class="w3-btn w3-hover-blue w3-grey themeBtn">submit data</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="w3-light-grey">
+        <p>Patient Records Management Information System</p>
+    </footer>
+</body>
+
+<script src="js/app.js"></script>
+<script src="js/utility.js"></script>
+<script>
+    generateRandomImages("");
+
+    getreq(location.href);
+
+    if(myrequest.header != ""){
+        let outxt = myrequest.content.split("%20").join(" ");
+        alert(outxt);
+    }
+</script>
+</html>

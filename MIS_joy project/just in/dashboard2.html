@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Define CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .main div {
+            width: calc(50% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .main h2 {
+            margin-top: 0;
+        }
+
+        .main a {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .main a:hover {
+            text-decoration: underline;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+        .navigation {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation">
+        <a href="#" class="active">Dashboard</a>
+        <a href="patients.php?req=new patient">New Patient</a>
+        <a href="patients.php?req=list patients">List Patients</a>
+        <a href="patients.php?req=search for a patient">Search for a Patient</a>
+        <a href="visits.php">List Visits</a>
+    </div>
+    <div class="container">
+        <div class="main">
+            <div>
+                <h2>Patient</h2>
+                <a href="patients.php?req=new patient">New Patient</a>
+                <a href="patients.php?req=list patients">List Patients</a>
+                <a href="patients.php?req=search for a patient">Search for a Patient</a>
+                <a href="visits.php">List Visits</a>
+            </div>
+            <div>
+                <h2>Appointments</h2>
+                <a href="appointments.php?req=new appointment">New Appointment</a>
+                <a href="appointments.php?req=today's appointment">Today's Appointment</a>
+                <a href="appointments.php?req=list appointments">List Appointments</a>
+                <a href="appointments.php?req=expired appointments">Expired Appointments</a>
+                <a href="appointments.php?req=kept appointments">Kept Appointments</a>
+                <a href="appointments.php?req=search appointments">Search Appointments</a>
+            </div>
+            <div>
+                <h2>Inventory</h2>
+                <a href="inventory.php?req=view inventory">View Inventory</a>
+                <a href="inventory.php?req=add item">Add Item</a>
+                <a href="inventory.php?req=administer item">Administer Item</a>
+            </div>
+            <div>
+                <h2>Users</h2>
+                <a href="users.php?req=list users">List Users</a>
+                <a href="users.php?req=add user">Add User</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

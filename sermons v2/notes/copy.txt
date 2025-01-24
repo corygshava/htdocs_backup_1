@@ -1,0 +1,161 @@
+<!doctype Html>
+
+<head>
+    <title>Church stuff</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <link rel="stylesheet" href="notes/css/main.css">
+    <link rel="stylesheet" href="notes/css/w3.css">
+    <link rel="stylesheet" href="notes/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>My Notes</header>
+    <div>
+        <div class="input">
+            <input type="text" name="textName" id="npt-value" oninput="startMe()" placeholder="type your title over here" class="w3-card">
+            <textarea name="Notes" Class="Cl w3-card" id="npt-text" placeholder="type your notes right here"></textarea>
+            
+            <div class="value_cont w3-white w3-card">
+                <div class="v-header">
+                    <span class="v-heading w3-wide w3-purple">Notes</span>
+                </div>
+                <div class="v-verses">
+                    
+                </div>
+                <div class="v-notes">
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="Buttons w3-bottom">
+        <button class="w3-button w3-round w3-blue " onclick="addTo()"><i class="fa fa-plus"></i></button>
+        <button class="w3-button w3-round w3-blue " onclick="addVerse()"><i class="fa fa-book"></i></button>
+        <button class="w3-button w3-round w3-red " onclick="delMe()"><i class="fa fa-trash"></i></button>
+        <button class="w3-button w3-round w3-green " onclick="save()"><i class="fa fa-save"></i></button>
+        <button class="w3-button w3-round w3-blue w3-right rld" onclick="toggleShow('.rld');saveTemp(3);" data-shown="1"><i class="fa fa-refresh"></i></button>
+    </div>
+
+    <div id="modal01" class="w3-modal" data-shown="0">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image" onclick="toggleShow('#modal01')"><i class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-padding-32">
+          <div>
+            <p id="caption" class="w3-large">we saved your work</p>
+            <button class="w3-button w3-hover-white" onclick="toggleShow('#modal01')">start new</button>
+            <button class="w3-button w3-hover-grey w3-round w3-green" onclick="toggleShow('#modal01');saveTemp(3);toggleShow('.rld');">continue</button>
+          </div>
+        </div>
+      </div>
+
+    <div class="titles w3-white w3-card">
+        <b>new one</b>
+    </div>
+
+    <footer class="w3-grey w3-padding-32">
+        <p>&copy Shavaarts</p>
+    </footer>
+
+    <script type="text/javascript" src="notes/js/SuperScript.js"></script>
+    <script type="text/javascript">
+        var myval = document.querySelector('.value_cont');
+        var mynotes = document.querySelector('.v-notes');
+        var myverses = document.querySelector('.v-verses');
+        var myhead = document.querySelector('.v-header');
+        var title = document.querySelector('#npt-value');
+        var text = document.querySelector('#npt-text');
+        var titles = document.querySelector('.titles');
+        var myModal = document.querySelector('#modal01');
+        var rlBtn = document.querySelector('.rld');
+
+        var dft = '<h2 class="w3-center head w3-purple">Notes</h2>';
+
+        function addTo() {
+            if(text.value != ''){
+                mynotes.innerHTML += '<li>' + text.value + '</li>';
+                text.value = '';
+                rlBtn.style.display = 'none';
+                startMe();
+                saveTemp(2);
+            } else {
+                alert('type some notes first')
+            }
+        }
+
+        function saveTemp(rn) {
+            rn = Number(rn);
+            if(rn == 1) {
+                if(sessionStorage.getItem('tempData1') != null){
+                    toggleShow('#modal01');
+                    toggleShow('.rld');
+                }
+            } else if (rn == 2) {
+                sessionStorage.setItem('tempData1',mynotes.innerHTML);
+                sessionStorage.setItem('tempData2',myverses.innerHTML);
+                sessionStorage.setItem('tempData3',title.value);
+                console.log('saving data');
+            } else if (rn == 10) {
+                sbs.removeItem('tempData1');
+                sbs.removeItem('tempData2');
+                sbs.removeItem('tempData3');
+            } else {
+                mynotes.innerHTML = sbs.getItem('tempData1');
+                myverses.innerHTML = sbs.getItem('tempData2');
+                title.value = sbs.getItem('tempData3');
+                startMe();
+                console.log('saved data shown');
+            }
+        }
+
+        function addVerse() {
+            myverses.innerHTML += '<button>' + text.value + '</button>';
+            text.value = '';
+            rlBtn.style.display = 'none';
+            saveTemp(2);
+        }
+
+        function delMe() {
+            if (title.value != '') {
+                lbs.removeItem(title.value);
+            }
+        }
+
+        function save(){
+            if (title.value != '') {
+                if(mynotes.innerHTML != ''){
+                    lbs.setItem(title.value,myval.innerHTML);
+                    titles.innerHTML += '<a  onclick="viewSmn(\''+title.value+'\')" href="notes/sermons.html">'+title.value+'</a>';
+                    lbs.setItem('titles',titles.innerHTML);
+                } else {
+                    alert('we cant save if there are no notes');
+                }
+            } else {
+                alert('heading required');
+            }
+        }
+
+        function startMe() {
+            myhead.innerHTML = '<span class="v-heading w3-wide w3-purple">' + title.value + '</span>';     //<span class="v-heading w3-wide w3-purple">Notes</span>
+            //setTimeout(startMe, 10);
+        }
+
+        function init() {
+            lbs.removeItem('titles');
+            lbs.setItem('titles','<span>Titles</span><a onclick="viewSmn(\'the rest that remains\')" href="#">the rest that remains</a>');
+            titles.innerHTML = lbs.getItem('titles') != null ? lbs.getItem('titles') : '<span>Titles</span>';
+            if (title.value != '') {
+                startMe();
+            }
+            saveTemp(1);
+        }
+        
+        function viewSmn(v) {
+        	sbs.setItem('curSum',v);
+        	window.location.assign("notes/sermons.html");
+        }
+
+        init();
+        toggleShow('.rld');
+    </script>
+</body>

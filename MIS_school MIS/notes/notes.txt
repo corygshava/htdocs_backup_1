@@ -1,0 +1,19 @@
+dashboard
+    admin
+        can add and modify student details
+        can see and edit the list of all students
+        can see and edit the list of all teachers
+    teacher
+        can see the details of students in his class
+        can see the details of fellow teachers in his class
+    discipline master
+        same as teacher
+        can see and add discipline cases
+
+database notes
+    database name is school_mis
+    cases table has the fields (case_id	student_id	student_name	case_description	case_state	case_punishment 	)
+        case_state is either pending or resolved
+    students table fields (student_id	student_name	student_class	student_fees	student_required_fees 	)
+    users table fields(user_id	user_name	user_password	user_type	user_class 	)
+        user_type is either admin, teacher or disciplinemaster

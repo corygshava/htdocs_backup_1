@@ -1,0 +1,16 @@
+
+notes
+    session state can either be complete, pending or cancelled.
+    feedback status can either be addressed, pending or rejected
+    userrole can either be admin, worker or customer
+
+remaining
+    workerinterface (provided a session is marked as verified they can mark it as done)
+    
+    admin 
+        (they can delete a session, or verify it based on the mpesa verification code);
+        they can see all user records (and delete or change role)
+        they can see all worker records (and delete or change role)
+        they can see all feedback records (and delete them)
+
+    customer (they can set the verification code for a session)

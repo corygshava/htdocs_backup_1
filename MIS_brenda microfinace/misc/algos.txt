@@ -1,0 +1,283 @@
+connect algo
+    write a php code that handles a database connection. make it that it checks if the specified database exists and creates it if it doesnt
+
+checksetup algo
+    consider{
+        all database connection is handled by a file at "actions/connect.php"
+    }
+    write a php code that checks if tables called loans, deposits, customers, users, savings,usagelogs and withdrawals exist in a database.
+    if they dont the code creates the tables with these fields
+        loans
+            fields
+                loanid number primary key auto_increment,
+                loanholder text,
+                loanamount number,
+                loanguarantors text,
+                dateapplied datetime,
+                dateapproved datetime,
+                dateverified datetime,
+                amountpaid number,
+                paymentcode text,
+                status text
+
+        deposits
+            fields
+                depoid  number primary key auto_increment,
+                depoamt number,
+                depoholder text,
+                depodate datetime,
+                depo_transactioncode text,
+                depostatus text
+
+        withdrawals
+            fields
+                wdid  number primary key auto_increment,
+                wdamt number,
+                wdholder text,
+                wddate datetime
+
+        savings
+            fields
+                saveid  number primary key auto_increment,
+                saveamt number,
+                saveholder text,
+                savestatus text,
+                updatedates text,
+                savestartdate datetime
+
+        customers
+            fields
+                custid  number primary key auto_increment,
+                custname text,
+                custpassword text,
+                custcontact varchar(25),
+                custstatus text
+
+        users
+            fields
+                userid  number primary key auto_increment,
+                username text,
+                userpassword text,
+                datecreated datetime
+
+        usagelogs
+            fields
+                logid  number primary key auto_increment,
+                logdate datetime,
+                logcontents text
+    
+    consider {
+        the code will check for and make the tables one by one, not as a single operation
+    }
+
+loans algo
+    consider{
+        all database connection is handled by a file at "actions/connect.php"
+    }
+    write a php code that checks if a table called loans exists on a database.
+        if it doesnt it creates the table and gives it these fields
+            loanid number primary key auto_increment,
+            loanholder text,
+            loanamount number,
+            loanguarantors text,
+            dateapplied datetime,
+            dateapproved datetime,
+            dateverified datetime,
+            amountpaid number,
+            paymentcode text,
+            status text
+        if it does it displays all the records from these fields (loanid, loanholder, loanamount, loanguarantors, dateapplied, dateapproved, dateverified, amountpaid, paymentcode, status)
+        in a table whose format is (<table class="w3-table w3-border thetable">) 
+        and the heading row has this format (<tr class="primarybg2">) and the th tags bearing the values of the fields fetched
+        and every other row has this format (<tr class="w3-border-bottom w3-hover-dark-grey" data-guarantors="(value from the guarantors field)">)
+    
+    - for only certain records
+    considering theres a table called loans on a database, write a php code that does the following
+        it checks if theres a variable called filter
+        if it exists and its value is not "all"{
+            displays all the records from these fields (loanid, loanholder, loanamount, loanguarantors, dateapplied, dateapproved, dateverified, amountpaid, paymentcode, status) where the status field has the value of (entered filter)
+            in a table whose format is (<table class="w3-table w3-border thetable">) 
+            and the heading row has this format (<tr class="primarybg2">) and the th tags bearing the values of the fields fetched
+            and every other row has this format (<tr class="w3-border-bottom w3-hover-dark-grey" data-guarantors="(value from the guarantors field)">)
+        }
+        if its value is "all"{
+            display all records
+        }
+        if it doesnt {
+            the code prints "invalid request"
+        }
+
+customer side loans algo
+    consider{
+        all database connection is handled by a file at "actions/connect.php"
+        theres a variable for the current active username (curuser) passed via get
+    }
+
+    write a php code that shows all records in the table loans where loanholder field is curuser
+
+adminsummary algo
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        these tables are present in a connected database (loans, deposits, customers, users, savings,usagelogs and withdrawals)
+        the code creates a string array (loanstatusvalues) to be used in the code
+        the code also creates an int array (loandata) that has the same legnth as the status values array to be used in the code
+    }
+    write a php code that will show the number of records in each table and store them in an array (tablecounts)
+    also considering that the table savings has a field called saveamt, add code that will find the sum of its contents and store it into a variable.
+    also considering that the table loans has field called loanamount and status
+        add code that will find the sum of items in loanamount where status is (cycle through the contents of loanstatusvalues) and store it in (a corresponding index in loandata).
+
+customer summary algo
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        these tables are present in a connected database (loans, deposits, savings and withdrawals)
+        the code creates a string array (loanstatusvalues) to be used in the code
+        the code also creates an int array (loandata) that has the same legnth as the status values array to be used in the code
+        theres a variable for the current active username (curuser)
+    }
+
+    write a php code that
+        finds the number of records in deposits where depoholder field is curuser and stores the result in a variable
+        and finds the number of records in withdrawals where wdholder field is curuser and stores the result in a variable
+        and finds the contents of saveamt field in savings folder where saveholder field is curuser and stores the result in a variable
+        and also considering that the table loans has field called loanholder,loanamount and status
+            add code that will find the sum of items in loanamount where status is (cycle through the contents of loanstatusvalues) and store it in (a corresponding index in loandata) where the loanholder is curuser.
+
+customers page algo
+    consider{
+        all database connection is handled by a file at "actions/connect.php"
+        the table customers exists in a connected database
+    }
+
+    write a php code that displays records from the fields (custid, custname, custstatus, custcontact) in that table
+
+users page algo
+    consider{
+        all database connection is handled by a file at "actions/connect.php"
+        the table users exists in a connected database
+    }
+
+    write a php code that displays records from the fields (userid, username, datecreated) in the table
+
+-----------------------------------------------------------------------------------------------------------
+
+DATA HANDLERS
+
+new loan
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table loans exists in a connected database
+    }
+    write a php code that adds a new record in the fields (loanholder, loanamount, loanguarantors, dateapplied, status) 
+    where loanholder, loanamount is a post variable and loanguarantors is a joining of the post variables (Guarantor1, Guarantor2, Guarantor3) with a text "_no|" as a separator between them
+    and dateapplied is the current date and time and status is automatically set to "pending approval"
+
+approve loan
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table loans exists in a connected database
+    }
+
+    write a php code that updates the contents of a record in loans where the loanid field is (loannum - an editable variable) and sets the value of the status field to "unpaid"
+    if the query works make it alert the user "loan approved" otherwise "loan approval failed"
+
+pay loan
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table loans exists in a connected database
+    }
+
+    write a php code that updates the contents of a record in loans where the loanid field is (loannum - an editable variable) and sets the value of the status field to "waiting verification"
+     and the values of (amountpaid, paymentcode) to be corresponding post member variables
+
+verify loan
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table loans exists in a connected database
+    }
+
+    write a php code that updates the contents of a record in loans where the loanid field is (loannum - an editable variable) and sets the value of the status field to "paid"
+    if the query works make it alert the user "loan payment verified" otherwise "loan verification failed"
+
+reject loan
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table loans exists in a connected database
+    }
+
+    write a php code that updates the updates of a record in loans where the loanid field is (loannum) and sets the value of the status field to "rejected"
+    if the query works make it alert the user "loan rejected successfully" otherwise "loan rejection failed"
+
+newuser
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table users exists in a connected database and has the fields (username and password)
+        variables for (username,password) have been passed via POST
+    }
+
+    write a php code that adds a new record provided there is no record with the passed username
+    if there is it should alert the user "the username already exists" otherwise inform the user if the operation was successful.
+
+delete user
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table users exists in a connected database
+        the value for usernum has been passed via post
+    }
+
+    write a php code that deletes the contents of a record in users where the userid field is (usernum)
+    if the query works make it alert the user "user deleted" otherwise "user deleting failed"
+
+new customer
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table customers exists in a connected database
+        the table has fields for (custname, custpassword, custcontact, custstatus)
+        the values (customername,customerpassword, customercontact) have been passed via POST
+        the value for custstatus is to be set as "active"
+    }
+
+    write a php code that adds a new record provided there is no record with the passed customername
+    if there is it should alert the user "the username already exists" otherwise inform the user if the operation was successful.
+
+login code
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table users exists in a connected database and has the fields (username and password)
+        variables for (username,password, usertype) have been passed via POST
+        the table customers has fields for (custname, custpassword, custcontact, custstatus)
+        the code will inform the user if the username exists in the respective table and 
+        if the password is correct at separate points in the code
+    }
+
+    write a php code that will verify if theres a record in either users or customers that 
+    has the entered username and password combination depending on the value of usertype (whether "client" or "administrator")
+
+    provided the username and password combination exists a cookie called currentusername is to be set as 
+    the entered username and another cookie currentusertype is to be set as the value of usertype
+
+savings deposits
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table deposits exists in a connected database and has the fields (depoamt, depoholder, depodate, depostatus, depo_transactioncode)
+        variables for (depoholder, depoamt, transactioncode) have been passed via POST
+        the depostatus field is to be set to "pending verification" and depodate to the current date an time
+    }
+
+    write a php code that inserts data into the deposits table
+
+verify deposits
+    consider {
+        all database connection is handled by a file at "actions/connect.php"
+        the table deposits exists in a connected database and has the fields (depoamt, depoholder, depodate, depostatus, depo_transactioncode)
+        the value for deponum has been passed via post
+        the table savings exists and has these fields {saveamt, saveholder, savestatus, updatedates, savestartdate}
+    }
+
+    write a php code that will update the value for depostatus to "cashed" where depoid field is deponum
+
+    then it will fetch the values for (depoamt, depoholder, depodate).
+    after this it will check if theres a record in savings where theres a saveholder with the found depoholder value.
+        if there is it will extract the value in the saveamt field and add it to depoamt and the value for updatedates will be extracted and added onto in this format ("," depodate), then it will update the value for saveamt as the new amount and the value for updatedates with the new string
+        otherwise the code is to add a new record where the values for (saveamt, saveholder) are (depoamt, depoholder). the other fields (savestatus, updatedates, savestartdate) will be filled as follows ("cashed",depodate,(current date))
+

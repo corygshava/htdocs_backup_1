@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            background-image: url('hospital_background.jpg'); /* Add your hospital background image */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid #fff;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type=text], input[type=email], input[type=tel], input[type=date], input[type=password], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=password]:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px #007bff;
+        }
+        input[type=text]:hover, input[type=email]:hover, input[type=tel]:hover, input[type=date]:hover, input[type=password]:hover, textarea:hover, select:hover {
+            border-color: #007bff;
+        }
+        button[type=submit] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button[type=submit]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hospital Form</h1>
+        <form>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="tel" placeholder="Phone">
+            <input type="date" placeholder="Date of Birth">
+            <input type="password" placeholder="Password">
+            <textarea placeholder="Address"></textarea>
+            <select>
+                <option value="">Select Department</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="neurology">Neurology</option>
+                <option value="orthopedics">Orthopedics</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

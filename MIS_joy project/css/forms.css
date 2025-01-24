@@ -1,0 +1,48 @@
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #fff;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type=time],input[type=number],input[type=text], input[type=email], input[type=tel], input[type=date], input[type=password], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: var(--transitionFast);
+}
+input[type=time]:focus,input[type=number]:focus,input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=password]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 12px #64afff;
+    scale: 1.05;
+}
+input[type=time]:hover,input[type=number]:hover,input[type=text]:hover, input[type=email]:hover, input[type=tel]:hover, input[type=date]:hover, input[type=password]:hover, textarea:hover, select:hover {
+    border-color: #007bff;
+}
+button[type=submit] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primaryColor);
+    color: #fff;
+    cursor: pointer;
+}
+button[type=submit]:hover {
+    background-color: #0056b3;
+}

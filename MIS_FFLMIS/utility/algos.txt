@@ -1,0 +1,39 @@
+map input algorithm
+
+    consider{
+        the code uses leaflet.js,
+        i have leaflet js in a folder at js/leaflet/leaflet.js,
+        the function called on click has a parameter for the latitude and logitude of the point clicked on the map,
+        the map will be created in an element with an id "themap"
+    }
+    the idea is to create a function i can call at any time to initiate a map if there is none existing already
+    then the code adds a click listener to the map such that it runs a function that checks if there is any marker placed on the map
+        if not it creates a new one at the passed location
+        if there is it modifies its position to the passed location
+    
+    then the function updates an global variable dummy and curmapinput (which are inputs and already exist in a separate script that will be called by the page) and sets their value to (latitude,longitude)
+
+
+delivery record life cycle
+
+    when added its set to pending
+    when a driver chooses it its set to selected
+    the client either accepts or rejects driver
+        accepts => record is changed back to pending
+        rejects => record is changed to driver chosen
+
+    * driver drives to the pickup location
+
+    when the load is picked up the client sets the record as in transit
+    when the driver reaches the destination the driver sets the record as arrived
+    the client confirms the delivery having arrived and sets it as complete
+
+monitoring system
+    driver's perspective
+        if they are on a job they are constantly redirected to monitorDelivery
+        there their location and time is pinged once every 10sec and writen onto a file (the file's name is [deliveryserial].txt) format "23.343,-2.234324|12-22-23,12:34"
+
+    client's perspective
+        once they choose monitor they are directed to monitorDelivery
+        there the client gets a feed from [deliveryserial].txt where they are shown the approximate location of the driver delivering their stuff
+

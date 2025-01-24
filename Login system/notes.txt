@@ -1,0 +1,2 @@
+inserting data into a table
+INSERT INTO `users` (`userid`, `username`, `password`) VALUES (NULL, 'normal', '123');

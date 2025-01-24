@@ -1,0 +1,230 @@
+
+*{box-sizing:border-box;}
+body{Margin:0;Overflow-x:hidden;background:#222;}
+header{padding:25px;font-size:25px;}
+header.special{padding: 0 !important;min-height: 150px;max-height: 250px;overflow: hidden;}
+header.special img{width: 100%;height: auto;}
+nav.normal,header{background:#222;color:#fff;text-align: center;}
+nav.normal{box-shadow: 0 15px 8px 1px rgba(0,0,0,0.0);display: inline-block;width: 100%;margin: 10px 0 25px 0;}
+nav li{display: inline-block;padding: 15px 10px;list-style-type: none;}
+a{text-decoration: none;}
+
+input:focus{
+    outline: none;
+    border-color: rgb(238, 255, 0) !important;
+}
+
+.main{
+    border-radius: 50px 50px 0 0;
+    background: #fff;
+}
+.input{
+    width:100%;
+    padding:25px 10px;
+}
+.input textarea,.input .text_holder,.value-cont,.input input,.input select,.hint,.container{
+    width:96%;
+    margin:20px 2%;
+    border:none;
+    display: block;
+}
+.input textarea{
+    Padding:12px;
+    border-radius:5px;
+    height:250Px;
+}
+.input input,.input select{
+    padding:10px;
+    border-radius:5px;
+    border: none;
+    border-bottom: 2px solid #2196F3;
+}
+.input .text_holder{
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 12px rgba(0,0,0,0.1);
+}
+.input .data-errlog{
+    padding: 10px;
+}
+.navigator{
+    padding: 12px;
+}
+.navigator button{
+    transition: 0.9s;
+    padding: 5px 20px;
+    margin: 0 5px;
+    border: none;
+    background: rgb(100, 100, 100);
+    color: snow;
+    border-radius: 15px;
+}
+
+.hint span{
+    padding: 12px 5px;
+    display: block;
+}
+.hint span i{
+    font-size: 20px;
+}
+#hinter{
+    margin: 12px 15px;
+}
+
+.Buttons{
+    background:linear-gradient(180deg,rgba(255, 255, 255, 0),rgb(255, 255, 255,0.7),rgb(255, 255, 255));
+}
+.Buttons button,.Buttons a{
+    border-radius: 50%;
+    margin: 12px 5px;
+}
+
+.value_cont{
+    border-radius: 15px;
+    overflow: hidden;
+	/*padding: 12px 5px;*/
+}
+.value_cont li{
+    padding: 12px;
+    list-style-type: none;
+}
+.value_cont button{
+    padding: 10px 5px;
+    background:#f4a034;
+    border-radius: 5px;
+    border:none;
+    margin: 12px 10px;
+}
+.value_cont .quote{
+    padding: 20px 12px;
+    border-left: 2px solid #2196F3;
+    background-color: #ddffff;
+    margin: 12px 2%;
+    width: 96%;
+    font-family:cursive;
+}
+.value_cont h4{
+    padding: 10px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.v-heading{
+    padding:12px;
+    display:block;
+    text-align:center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.chose{
+    width:96%;
+    margin:20px 2%;
+    overflow-x: hidden;
+    overflow-y:auto;
+    border-radius: 5px;
+}
+.chose span{
+    background: #4CAF50!important;
+}
+.titles{
+    width:96%;
+    margin:20px 2%;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0;
+}
+.titles span, .chose span{
+    padding: 12px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    background: #111;
+    color: #fff;
+}
+.titles a{
+    display: none!important;
+}
+.titles a,.titles li, .chose a{
+    display: block;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+
+.sidenav{
+    width: 100%;
+    display: block;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+}
+.sidenav #rev{
+    padding: 12px 0;
+    border-radius: 5px;
+    max-height: 450px;
+    overflow-y: auto;
+}
+#cont{
+    display: none;
+}
+
+/*exhibition styles*/
+
+.cats-holder li{
+    padding: 12px;
+    list-style-type: none;
+    cursor: pointer;
+}
+.cats{
+    padding: 32px 20px;
+    text-align: center;
+    background-size: 100% auto;
+    background-position: 0 45%;
+}
+.cats span{
+    font-size: 25px;
+    text-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+}
+.cats.cat1{
+    background-image: url("../imgs/cat1.jpg");
+}
+.cats.cat2{
+    background-image: url("../imgs/cat2.jpg");
+}
+.cats.cat3{
+    background-image: url("../imgs/cat3.jpg");
+}
+
+.cats.cat4{
+    background-image: url("../imgs/cat4.jpg");
+}
+
+.cats.cat5{
+    background-image: url("../imgs/cat5.jpg");
+}
+
+.cats.cat6{
+    background-image: url("../imgs/cat6.jpg");
+}
+
+.cats.cat7{
+    background-image: url("../imgs/cat7.jpg");
+}
+
+
+
+@media (min-width: 601px){
+    .sidenav #rev{
+        width: 70%;
+        margin: 45px 15%;
+    }
+}
+
+@media (max-width: 601px){
+    .sidenav #rev{
+        width: 90%;
+        margin: 5px 5%;
+    }
+}

@@ -1,0 +1,126 @@
+:root{
+	--textcolor: #fff;
+	--panelbg: rgb(43, 43, 43);
+	--bodybg: #0e0e0e;
+	--bordercolor: #ffffff77;
+	--roundness: 15px;
+}
+*{
+	transition: 0.3s ease-out;
+}
+nav a:hover{
+	color: var(--themecol);
+}
+
+/* common */
+.heightguy{
+	top: 0;
+	pointer-events: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	background-color: transparent;
+}
+.mytag{
+    padding: 15px 16px;
+    border-radius: 15px;
+    display: inline-block;
+}
+.themebtn{
+    border-radius: var(--roundness);
+    padding: 15px 20px;
+    text-decoration: none;
+    margin: 12px 7px;
+    display: inline-block;
+}
+.themebtn:hover,.themebtn2:hover{
+	scale: 1.1;
+}
+.themebtn2{
+	border: none;
+	padding: 8px 15px;
+	border-radius: 0px;
+	margin: 15px 8px 8px 0;
+	background-color: var(--bodybg);
+	color: var(--textcolor);
+}
+.alerter{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-image: linear-gradient(0deg,rgba(0,0,0,0.8),rgba(0,0,0,0.1));
+	z-index: 3;
+}
+.alerter .alert {
+	display: inline-block;
+	padding: 15px;
+	width: 250px;
+	border-radius: 15px;
+	margin: 0 0 25px 0;
+	animation-delay: 0s;
+	opacity:0;
+	animation: 4.5s alertme ease-out;
+}
+.alert.good {
+	background-color: mediumseagreen;
+	box-shadow: 0 0 15px green;
+	color: #fff;
+}
+.alert.warning {
+	background-color: rgb(179, 147, 60);
+	box-shadow: 0 0 15px rgb(226, 102, 0);
+	color: #fff;
+}
+.alert.error {
+	background-color: rgb(179, 60, 60);
+	box-shadow: 0 0 15px rgb(226, 0, 0);
+	color: #fff;
+}
+
+.notifier {
+	background-color: rgb(0, 0, 0,0.7);
+	color: #fff;
+	padding: 12px;
+	border-radius: 12px;
+	width: 250px;
+	display: inline-flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	text-align: left;
+	margin: 12px 12px;
+	transition: 0.3s ease-out;
+}
+.notifier.client:hover{
+	background-color: var(--hovcolor);
+	color: #111;
+	transform: scale(1.1);
+}
+.notifier.driver:hover{
+	background-color: var(--hovcolor);
+	color: #111;
+	transform: scale(1.1);
+}
+.notifier:hover .bigtxt{
+	color: #fff !important;
+}
+
+.bigtxt{
+	display: inline-block;
+	font-size: 5vh;
+	margin: 0 8px 0 0;
+}
+.themetxt{
+	color: var(--themecol);
+}
+.themebg{
+	background-color: var(--themecol);
+}
+
+@keyframes alertme{
+	from{transform:translateY(150px);opacity:0;}
+	20%{transform:translateY(0px);opacity:1;}
+	95%{transform:translateY(-25px);opacity:1;}
+	to{transform:translateY(-50px);opacity:0;}
+}

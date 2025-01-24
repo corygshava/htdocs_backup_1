@@ -1,0 +1,26 @@
+uploader page
+
+create an html page that does the following{
+	it has an input for selecting a file (name = "myfile"),
+	it has a password input for entering the access key (name = "mypass"),
+	it has a button (a button not an input) for submitting the data,
+	it sends the data to a file called handleuploads.php,
+}
+
+uploads handler
+
+create a php code that{
+	checks if myfile and mypass has been passed as a post variable,
+	if they have it reads a text file called "khufdghenkjgskughu _actuallkey",
+	it compares the entered mypass with the actual key,
+	if they dont match it echos "invalid access key" and redirects back to index.html after 3 seconds,
+	if it matches{
+		it stores the file as "uploads/(random hexadecimal of 4 characters)_(the file's name).(the extension)",
+		it checks if a cookie called "accesskey" is available and sets it to "on" and expires after 3 hours
+		it then redirects to "listuploads.php"
+	}
+}
+
+list uploads
+
+create a php code that lists all files in a folder called 'uploads/' on the same folder

@@ -1,0 +1,35 @@
+.tableholder{
+    min-width: 350px;
+    max-width: 1250px;
+    width: 90%;
+    margin: 75px auto;
+    padding: 25px 0;
+}
+.tableholder table{
+    background-color: var(--container-bg-color);
+    border: 1px solid var(--text-color);
+    border-radius: var(--roundSmall);
+    overflow: hidden;
+}
+.tableholder table tr{
+    border-bottom: 1px solid var(--text-color);
+}
+.tableholder table th{
+    padding: 12px 0;
+}
+.bottomopt{
+    padding: 15px 0;
+    text-align: center;
+}
+.tableholder table button,.tableholder table a,.bottomopt button,.bottomopt a{
+    padding: 8px 25px;
+    border-radius: var(--roundSmall);
+    background-color: var(--primaryColor);
+    border: none;
+    transition: var(--transitionFast);
+    cursor: pointer;
+}
+.tableholder table button:hover,.tableholder table a:hover,.bottomopt button:hover,.bottomopt a:hover{
+    background-color: var(--secondaryColor);
+    scale: 1.07;
+}

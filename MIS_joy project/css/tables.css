@@ -1,0 +1,12 @@
+.tableholder{
+    width: 86%;
+    margin: 75px auto;
+}
+.tablehead th{
+    padding: 15px !important;
+    color: #fff;
+}
+.tableholder tr td a{
+    display: inline-block;
+    margin: 5px 0 0 3px !important;
+}

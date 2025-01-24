@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'alexana';
+    src: url("../fonts/Alexana.ttf");
+}
+@font-face {
+    font-family: 'TG adventor';
+    src: url("../fonts/texgyreadventor-regular.otf");
+}
+@font-face {
+    font-family: 'TG adventor bold';
+    src: url("../fonts/texgyreadventor-bold.otf");
+}
+@font-face {
+    font-family: 'TG adventor italic';
+    src: url("../fonts/texgyreadventor-italic.otf");
+}
+@font-face {
+    font-family: 'TG adventor bolditalic';
+    src: url("../fonts/texgyreadventor-bolditalic.otf");
+}
+@font-face {
+    font-family: 'millanova';
+    src: url("../fonts/Millanova.otf");
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sermon notes</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/frontend.css">
+    <style type="text/css">
+    	.theme_round{border-radius: 15px;}
+
+        #heading{text-shadow: 0px 0px 10px rgba(0,0,0,0.6);text-transform: uppercase;}
+    </style>
+</head>
+<body>
+    <div class="container" data-shown="1">
+        <div class="tutorial theme_round mybg w3-text-white">
+            <img src="imgs/cat2.jpg" alt="tutorial bg" class="theme_round myimg">
+            <div class="overlay">
+                <div class="tutext normanim"><i class="fa fa-plus w3-text-blue"></i><br><span>this adds a point</span></div>
+                <div class="tutext normanim"><i class="fa fa-book w3-text-blue"></i><br><span>this adds a verse</span></div>
+                <div class="tutext normanim"><i class="fa fa-quote-right w3-text-blue"></i><br><span>this adds a quote</span></div>
+                <div class="tutext normanim"><i class="fa fa-header w3-text-blue"></i><br><span>this adds a heading</span></div>
+                <div class="tutext endanim">
+                    <button class="w3-btn w3-blue theme_round" onclick="replayTut()"><i class="fa fa-play"></i></button>
+                    <br><span>this replays the tutorial</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="js/frontend.js"></script>
+<script>
+    playTut();
+</script>

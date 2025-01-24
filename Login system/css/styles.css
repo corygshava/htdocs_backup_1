@@ -1,0 +1,89 @@
+nav,.tabBtns{
+    padding: 10px 15px;
+    font-size: 16px;
+}
+nav a,.tabBtns a{
+    padding: 12px 10px !important;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 7px;
+}
+
+.headingpanel .title{
+    font-size: 65px;
+    font-family: 'tw cen mt';
+    text-transform: uppercase;
+}
+
+.myform{
+    padding: 25px;
+    border-radius: 15px;
+    border: 3px solid rgba(75, 75, 75, 0.2);
+}
+.myform input{
+    padding: 12px;
+    width:100%;
+    border: 2px solid dodgerblue;
+    margin: 12px 0;
+    border-radius: 12px;
+}
+.myform input:focus{
+    border: 2px solid rgb(231, 131, 0);
+    outline:none;
+}
+
+/* index (book a car section) */
+
+.panel{
+    padding: 25px;
+}
+.panel .item:hover{
+    border: 2px solid;
+}
+.panel .item{
+    box-shadow: 3px 3px 12px rgba(50, 50, 50, 0.2);
+    overflow: hidden;
+    border-radius: 10px;
+}
+.panel img{
+    width:100%;
+}
+.panel .carlink{
+    padding: 7px 10px;
+    margin: 12px 0;
+}
+
+/* dashboard styles */
+.table-holder{
+    width: 80%;
+    margin: 25px 10%;
+    border: 2px solid rgba(50, 50, 50, 0.2);
+    border-radius: 12px;
+}
+.table-holder .field-holder{
+    padding: 15px 20px;
+}
+
+/* reusables */
+.themebtn{
+    border-radius: 12px;
+}
+
+@media screen and (max-width:600px) {
+    .myform{
+        width: 96%;
+        margin: 35px 2%;
+    }
+}
+@media screen and (min-width:601px){
+    .myform{
+        width: 70%;
+        margin: 35px 15%;
+    }
+}
+@media screen and (min-width:901px){
+    .myform{
+        width: 50%;
+        margin: 35px 25%;
+    }
+}

@@ -1,0 +1,286 @@
+some html algos (coz i felt too lazy to make them from scratch)
+
+    dashboard algo
+        consider{
+            the main divs are supposed to have some space in between them,
+            they are to have a box shadow for contrast,
+            they are to all have the same class ("main"),
+            they should fit 2 per line
+        }
+        write an html page with 4 main divs{
+            in the first one give it a heading ("Patient") and make it have hyperlinks saying ("new patient","list patients","search for a patient","list visits") all leading to "patients.php?req=(link text)" apart from the last one which will lead to "visits.php",
+            in the second one give it a heading ("Appointments") and make it have hyperlinks saying ("new appointment","today's appointment","list appointments","expired appointments","kept appointments","search appointments") all leading to "appointments.php?req=(link text)",
+            in the third one give it a heading ("Inventory") and make it have hyperlinks saying ("View inventory","add item","Administer Item") all leading to inventory.php?req=(link text)",
+            in the third one give it a heading ("Users") and make it have hyperlinks saying ("list users","add user") all leading to "users.php?req=(link text)",
+        }
+        dont forget to use an appropriate header and footer and give the page a modern application design look. also add a navigation menu where its links are the different pages mentioned with homepage being active link
+
+    sample form
+        consider{
+            the page is supposed to have a color pallete similar to that of a hospital,
+            the page is to have a stock background image of a hospital (add one if you can),
+            the form container will be having a white border, rounded corners (around 25px) and transparent white background (the idea is to mimic the look of test tubes) and will be centered on a screen,
+            use a button as the submit control, instead of an input,
+            include a relevant header
+        }
+        write a html page for a simple form that will be used to enter data, the inputs should be of all possible types (except checkbox, radio and file) and the css should contain styles for these states (focus and hover)
+
+php algos
+
+    connection guy
+        write a php code that handles a database connection. make it that it checks if the specified database exists and creates it if it doesnt
+
+    system setup
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the code will check for and make the tables one by one, not as a single operation
+        }
+        write a php code that checks if tables called users, patients, visits, appointments and inventory exist in a database.
+        if they dont the code creates the tables with these fields
+            users
+                fields
+                    userid  number primary key auto_increment,
+                    username text,
+                    userpassword text,
+                    datecreated datetime
+            patients
+                fields
+                    patientid number primary key auto_increment,
+                    patientname text,
+                    patientContact text,
+                    idnumber number,
+                    registrationdate datetime,
+                    lastvisit datetime
+            visits
+                fields
+                    visitid number primary key auto_increment,
+                    visitserial text,
+                    patientidnumber number,
+                    facilityused text,
+                    visistdate datetime,
+                    doctorsRemarks text,
+                    dateverified datetime,
+                    visitstatus text
+            appointments
+                fields
+                    appointmentid number primary key auto_increment,
+                    appointmentserial text,
+                    appointmentdate datetime,
+                    facility text,
+                    patientidnumber number,
+                    appointmentstatus text
+            inventory
+                fields
+                    itemid number primary key auto_increment,
+                    itemname text,
+                    itemquantity number,
+                    dateadded datetime,
+                    dateupdated datetime,
+                    updatelog text
+            facilities
+                fields
+                    facid number primary key auto_increment,
+                    facname text,
+                    dateadded datetime
+        as a special case if the users table doesnt exist, add the record ("admin","123") as the username and password respectively after creating it
+
+    user login
+        consider {
+            all database connection is handled by a file at "actions/connect.php",
+            the table users exists in a connected database and has the fields (username and userpassword),
+            variables for (username,password) have been passed via POST,
+            the code will inform the user if the username exists in the table and if the 
+            password is correct at separate points in the code
+        }
+
+        write a php code that will verify if theres a record in either users that 
+        has the entered username and password combination
+
+        provided the username and password combination exists a cookie called currentusername is to be set as 
+        the entered username and another cookie currentusertype is to be set as the value of usertype
+
+    new user
+        consider {
+            all database connection is handled by a file at "actions/connect.php",
+            the table users exists in a connected database and has the fields (username and userpassword),
+            variables for (username,password) have been passed via POST
+        }
+        write a php code that will check if the entered username already exists in the users table.
+            if it does the code should stop excecuting and tell the user that he should try a different username
+            if it doesnt add the new record using the passed data and inform the user if the process was successful
+
+    delete user
+        consider {
+            all database connection is handled by a file at "actions/connect.php",
+            the table users exists in a connected database and has the field (userid),
+            variables for (userid) have been passed via POST,
+            the idea is to make sure theres at least 1 record remaining in the users table
+        }
+        write a php code that will check if the entered userid already exists in the users table.
+            if it does the code should delete the record with the corresponding userid if there are more than 1 records in the table
+            if it doesnt inform the user of an invalid userid
+
+    new patient
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table patients exists in a connected database and has the fields (patientname, idnumber, patientContact, registrationdate, lastvisit),
+            variables for (thename, theidnumber,thecontact) have been passed via POST,
+        }
+        write a php code that checks if theres a record in the patients table with the given idnumber
+            if there is inform the user that the idnumber already exists
+            if there isnt add a record to the patients table in this format (thename, theidnumber, thecontact, (today's date and time),(today's date and time))
+    
+    list and search for patients
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            connection variable is $conn,
+            the table patients exists in a connected database and has the fields (patientid, patientname, idnumber, registrationdate, lastvisit, patientContact),
+            the table will be in this format '<table class="w3-table w3-border thetable">',
+            the first row in this format '<tr class="primarybg2">',
+            and all other rows are in this format '<tr class="w3-border-bottom w3-hover-dark-grey">'
+            theres a get variable called 'filter' that can been passed which is to contain the wanted idnumber,
+            the idea is to search for records which the idnumber field contains the words in the filter get variable if its present
+        }
+        write a php code that will check if the filter variable exists
+            if it doesnt display all records in these fields (patientid,idnumber, patientname, patientContact, registrationdate, lastvisit).
+            if it does display all records in these fields (patientid,idnumber, patientname, patientContact, registrationdate, lastvisit) where the idnumber contains the given filter variable
+    
+    new visit algo
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            connection variable is $conn,
+            the table visits exists in a connected database and has the fields (visitserial, patientidnumber, facilityused, visitdate,visitstatus),
+            a value for (thevisitserial, thepatientidnumber, thefacilityused) has been passed via POST
+        }
+
+        add a record in the visits table in this format (thevisitserial,thepatientidnumber,thefacilityused,(todays date and time),"pending clearance") provided all the required data has been passed
+    
+    list visits algo
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table visits exists in a connected database and has the fields (visitserial, patientidnumber, facilityused, visitdate,visitstatus,dateverified),
+            a value for (thevisitdata) may have been passed via GET
+        }
+        write a php code that will check if the value for thevisitdata has been passed
+            if it has
+                list records where the visitserial is the passed thevisitdata and  if there are none list records where patientidnumber is thevisitdata and if theres still none inform the user
+            otherwise just list all the records
+
+    verify visit
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table visits exists in a connected database and has the fields (visitserial, dateverified, visitstatus),
+            a value for (visitserial) may have been passed via POST
+        }
+        write a php code that will check if the visitserial has been passed
+            if it has it updates the corresponding record in the visits table as follows ((today's date),"cleared") as values for (dateverified, visitstatus) and if the record isnt found the user is informed
+            otherwise it just informs the user of an invalid request format
+
+    list appointments
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table appointments exists and has these fields (appointmentserial, appointmentdate, facility, patientidnumber, appointmentstatus),
+        }
+        write a php code that will display all the records in the table
+
+    new appointment
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table appointments exists and has these fields (appointmentserial, appointmentdate, facility, patientidnumber, appointmentstatus),
+            values for theserial, thedate, thetime, thefacility, theidnumber have been passed via post
+        }
+        write a php code that will check if all the required post variables have been passed
+            if they have insert a new record into the appointments table in this format (theserial, (concatenate the date and time so as to match the datetime format for sql fields),thefacility,theidnumber,"pending") as values for (appointmentserial, appointmentdate, facility, patientidnumber, appointmentstatus);
+            then it informs the user of whether or not it worked.
+            if they havent inform the user of an invalid request.
+
+    show today's appointments
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table appointments exists and has these fields (appointmentserial, appointmentdate, facility, patientidnumber, appointmentstatus),
+            the idea is to show all of today's appointments,
+            the appointmentdate values capture both date and time and we only want those of today and not this exact second
+        }
+        write a php code that will display all the records in the table whose date is today
+
+    search appointments
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table appointments exists and has these fields (appointmentserial, appointmentdate, facility, patientidnumber, appointmentstatus),
+            a get variable called theappointmentserial may be passed
+        }
+        write a php code that checks if the get variable exists
+            if it does it will display all the records in the table where the appointmentserial value corresponds to the one in the get variable
+            otherwise inform the user of an invalid request format
+
+    cancel appointment
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table appointments exists and has these fields (appointmentserial, appointmentdate, facility, patientidnumber, appointmentstatus),
+            a get variable called theappointmentserial may be passed
+        }
+        write a php code that checks if the get variable exists
+            if it does it will check if theres a record whose appointmentserial corresponds to the passed theappointmentserial
+                if a record is found update the appointmentstatus to "cancelled"
+                if not inform the user
+            otherwise inform the user of an invalid request format
+
+    update appointment
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table appointments exists and has these fields (appointmentserial, appointmentdate, facility, patientidnumber, appointmentstatus),
+            a get variable called theappointmentserial may be passed,
+            the table visits exists in a connected database and has the fields (visitserial, patientidnumber, facilityused, visitdate,visitstatus),
+        }
+        write a php code that checks if the get variable exists
+            if it does it will check if theres a record whose appointmentserial corresponds to the passed theappointmentserial
+                if a record is found {update the appointmentstatus to "kept" and adds a record to the visits table in this format ((generate a random string of characters preferably 8 digits long),(patientidnumber from the Appointments table),(facility from Appointments table),(today's date),"pending verification") 
+                as values for (visitserial, patientidnumber, facilityused, visitdate,visitstatus)}
+                if not inform the user
+            otherwise inform the user of an invalid request format
+    
+    add item to inventory
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table inventory exists and has these fields (itemname, itemquantity, dateadded, dateupdated, updatelog),
+            values for (itemname,itemquantity) have been passed via POST
+        }
+        write a php code that will check if the required post values have been passed
+            if they have{
+                check if theres a record with the same itemname as the one that has been passed
+                    if there is inform the user that the item is already in stock and that they should either change the name or update the item instead
+                    if there isnt add a record into the inventory table in this format (itemname,itemquantity,(today's date),(today's date),(today's date)) as values for (itemname, itemquantity, dateadded, dateupdated, updatelog)
+            }
+            otherwise inform the user of an invalid request format
+
+    update item in inventory
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table inventory exists and has these fields (itemname, itemquantity, dateupdated, updatelog),
+            values for (itemname,itemquantity) have been passed via POST
+        }
+        write a php code that will check if the required post values have been passed
+            if they have{
+                check if theres a record with the same itemname as the one that has been passed
+                    if there isnt update the record into the inventory table in this format (itemname,(newquantity which is the old quantity + itemquantity),(today's date),(newdate which is the old value of updatelog concatenated with (today's date))) as values for (itemname, itemquantity, dateupdated, updatelog)
+                    if there isnt inform the user that the item doesnt exist in the database
+            }
+            otherwise inform the user of an invalid request format
+
+    list inventory
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table inventory exists and has these fields (itemname, itemquantity, dateadded, dateupdated, updatelog),
+            values for (itemname,itemquantity) have been passed via POST
+        }
+        write a php code that displays all records in that table
+
+    search for an item in the inventory
+        consider{
+            all database connection is handled by a file at "actions/connect.php",
+            the table inventory exists and has these fields (itemname, itemquantity, dateupdated),
+            values for (itemname) have been passed via POST
+        }
+
+        write a php code that lists all records in the table which contain the passed item name
+

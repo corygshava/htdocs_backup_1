@@ -1,0 +1,164 @@
+<!doctype Html>
+
+<html>
+<head>
+    <title>Notes creator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <link rel="stylesheet" href="notes/css/main.css">
+    <link rel="stylesheet" href="notes/css/w3.css">
+    <link rel="stylesheet" href="notes/css/font-awesome.min.css">
+
+    <script src="notes/js/SuperScript.js"></script>
+</head>
+
+<body>
+
+    <header class="w3-center">Notes exhibitions</header>
+
+    <nav class="normal">
+        <li class="w3-hover-text-blue"><a href="cre8.html">writer</a></li>
+        <li class="w3-text-blue"><a href="#">exhibitions</a></li>
+        <li class="w3-hover-text-blue"><a href="notes/sermons.html">reader</a></li>
+    </nav>
+
+    <div class="main w3-padding-64">
+        <div class="w3-container w3-center">
+            <h2>Church sermons</h2>
+            <p>this is where all your sermons will be displayed according to the type of sermon and listed from old to newest</p>
+        </div>
+
+        <div class="cats-holder">
+            <div class="cat1 cats w3-grey w3-text-white"><span>sunday search the scriptures</span></div>
+            <div class="w3-container w3-center w3-padding-32 data-cat1"><span>showing notes from <b>sunday search the scriptures</b></span><hr></div>
+
+            <div class="cat2 cats w3-grey w3-text-white"><span>sunday teens</span></div>
+            <div class="w3-container w3-center w3-padding-32 data-cat2"><span>showing notes from <b>sunday teens</b></span><hr></div>
+
+            <div class="cat3 cats w3-grey w3-text-white"><span>wellspring</span></div>
+            <div class="w3-container w3-center w3-padding-32 data-cat3"><span>showing notes from <b>wellspring</b></span><hr></div>
+
+            <div class="cat4 cats w3-grey w3-text-white"><span>Special (Kisumu)</span></div>
+            <div class="w3-container w3-center w3-padding-32 data-cat4"><span>showing notes from <b>Special (Kisumu)</b></span><hr></div>
+
+            <div class="cat5 cats w3-grey w3-text-white"><span>Special (Kitale)</span></div>
+            <div class="w3-container w3-center w3-padding-32 data-cat5"><span>showing notes from <b>Special (Kitale)</b></span><hr></div>
+
+            <div class="cat6 cats w3-grey w3-text-white"><span>Special other</span></div>
+            <div class="w3-container w3-center w3-padding-32 data-cat6"><span>showing notes from <b>Special other</b></span><hr></div>
+
+            <div class="cat7 cats w3-grey w3-text-white"><span>personal</span></div>
+            <div class="w3-container w3-center w3-padding-32 data-cat7"><span>showing notes from <b>personal</b></span><hr></div>
+        </div>
+
+        <div id="thetitles" class="w3-hide"></div>
+    </div>
+    <footer class="w3-black w3-padding-16 w3-bottom"></footer>
+</body>
+
+<script>
+    let titleDis = document.querySelector('#thetitles');
+    let catDis = document.querySelectorAll('.cats');
+    var titles = titleDis.querySelectorAll('li');
+
+    let cat1_count = 0;
+    let cat2_count = 0;
+    let cat3_count = 0;
+    let cat4_count = 0;
+    let cat5_count = 0;
+    let cat6_count = 0;
+    let cat7_count = 0;
+
+    function showTitles(){
+        
+        titleDis.innerHTML = lbs.getItem("titles");
+
+        titles = titleDis.querySelectorAll('li');
+
+        for(var x = 0;x < titles.length;x++){
+            
+            //console.log("the sermon type is "+titles[x].dataset.sermontype);
+
+            curtitle = '<span>'+titles[x].dataset.sermontype+'</span>'
+
+            if(curtitle.toUpperCase() == catDis[0].innerHTML.toUpperCase()){
+                cat1_count += 1;
+                console.log("found one of " + titles[x].dataset.sermontype);
+                document.querySelector(".data-cat1").innerHTML += '<li class="w3-hover-text-blue" onclick="viewSmn(\''+titles[x].innerHTML+'\')">' + titles[x].innerHTML + '</li>';
+            } else if(curtitle.toUpperCase() == catDis[1].innerHTML.toUpperCase()){
+                cat2_count += 1;
+                console.log("found one of " + titles[x].dataset.sermontype);
+                document.querySelector(".data-cat2").innerHTML += '<li class="w3-hover-text-blue" onclick="viewSmn(\''+titles[x].innerHTML+'\')">' + titles[x].innerHTML + '</li>';
+            } else if(curtitle.toUpperCase() == catDis[2].innerHTML.toUpperCase()){
+                cat3_count += 1;
+                console.log("found one of " + titles[x].dataset.sermontype);
+                document.querySelector(".data-cat3").innerHTML += '<li class="w3-hover-text-blue" onclick="viewSmn(\''+titles[x].innerHTML+'\')">' + titles[x].innerHTML + '</li>';
+            } else if(curtitle.toUpperCase() == catDis[3].innerHTML.toUpperCase()){
+                cat4_count += 1;
+                console.log("found one of " + titles[x].dataset.sermontype);
+                document.querySelector(".data-cat4").innerHTML += '<li class="w3-hover-text-blue" onclick="viewSmn(\''+titles[x].innerHTML+'\')">' + titles[x].innerHTML + '</li>';
+            } else if(curtitle.toUpperCase() == catDis[4].innerHTML.toUpperCase()){
+                cat5_count += 1;
+                console.log("found one of " + titles[x].dataset.sermontype);
+                document.querySelector(".data-cat5").innerHTML += '<li class="w3-hover-text-blue" onclick="viewSmn(\''+titles[x].innerHTML+'\')">' + titles[x].innerHTML + '</li>';
+            } else if(curtitle.toUpperCase() == catDis[5].innerHTML.toUpperCase()){
+                cat6_count += 1;
+                console.log("found one of " + titles[x].dataset.sermontype);
+                document.querySelector(".data-cat6").innerHTML += '<li class="w3-hover-text-blue" onclick="viewSmn(\''+titles[x].innerHTML+'\')">' + titles[x].innerHTML + '</li>';
+            } else{
+                cat7_count += 1;
+                document.querySelector(".data-cat7").innerHTML += '<li class="w3-hover-text-blue" onclick="viewSmn(\''+titles[x].innerHTML+'\')">' + titles[x].innerHTML + '</li>';
+            }
+        }
+
+        if(cat1_count == 0){
+            document.querySelector(".data-cat1").style.display = 'none';
+            console.log("something "+ 2);
+            catDis[0].style.display = 'none';
+        }
+        if(cat2_count == 0){
+            document.querySelector(".data-cat2").style.display = 'none';
+            console.log("something "+ 2);
+            catDis[1].style.display = 'none';
+        }
+        if(cat3_count == 0){
+            document.querySelector(".data-cat3").style.display = 'none';
+            console.log("something "+ 2);
+            catDis[2].style.display = 'none';
+        }
+        if(cat4_count == 0){
+            document.querySelector(".data-cat4").style.display = 'none';
+            console.log("something "+ 2);
+            catDis[3].style.display = 'none';
+        }
+        if(cat5_count == 0){
+            document.querySelector(".data-cat5").style.display = 'none';
+            console.log("something "+ 2);
+            catDis[4].style.display = 'none';
+        }
+        if(cat6_count == 0){
+            document.querySelector(".data-cat6").style.display = 'none';
+            console.log("something "+ 2);
+            catDis[5].style.display = 'none';
+        }
+        if(cat7_count == 0){
+            document.querySelector(".data-cat7").style.display = 'none';
+            console.log("something "+ 2);
+            catDis[6].style.display = 'none';
+        }
+
+    }
+
+    function viewSmn(v) {
+        lbs.setItem('curSum',v);
+        //sbs.removeItem('curSum');
+
+        if(window.location != 'sermons.html'){
+            window.location.assign("notes/sermons.html");
+        }
+    }
+
+    showTitles();
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+iframe{
+    /* border: 2px solid var(--themeborder); */
+    width: 100%;
+}
+
+.menubar{
+    background-color: #111;
+    margin: 0 0 45px 0;
+    padding: 35px 7px;
+    border-radius: 0 0 var(--roundSmall) 0;
+    max-height: 98vh;
+    overflow-y: auto;
+}
+.contentbar{
+    box-sizing: border-box;
+    padding: 35px 0 0 0;
+    /* border: 1px solid; */
+}
+
+.sidepanel{
+    padding: 12px 20px;
+    color: var(--textColor);
+    border-radius: var(--roundSmall);
+    margin: 25px 8px;
+    background-color: var(--container-bg-color);
+    box-shadow: 0 0 15px rgba(0,0,0,0.9);
+}
+.sidepanel a{
+    display: block;
+    margin: 12px 0;
+    padding: 12px 15px;
+    background-color: transparent;
+    transition: var(--transitionFast);
+    border-radius: var(--roundSmall);
+}
+.sidepanel a:hover{
+    scale: 1.1;
+    background-color: var(--primaryColor);
+}
+.sidepanel a.current{
+    background-color: var(--primaryColor);
+}

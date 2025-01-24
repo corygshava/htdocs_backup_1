@@ -1,0 +1,17 @@
+loan lifespan
+    pending approval -> unpaid -> pending verification -> paid
+
+    customer hits new loan, enters details.
+    details are sent to the loans table where the loan is marked as [pending approval]
+    admin checks the loans and verifies the guarantors before approving the loan
+    then the money is sent to the customer and the loan set as [unpaid]
+    when the customer pays the loan its status is changed to [pending verification]
+    the admin verifies that it was paid then status is changed to [paid]
+
+savings lifespan
+    sent to deposits table
+    once transaction is verified by admin the deposit amount is added to savings
+
+to do
+    make it that when customer views loans if its unpaid theres a button to pay the loan
+    the button takes them to a separate page that gives a form for entering the required data

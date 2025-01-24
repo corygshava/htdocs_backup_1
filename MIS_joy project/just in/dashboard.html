@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .main {
+            width: calc(50% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a.active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="patients.php?req=new%20patient">New Patient</a>
+            <a href="patients.php?req=list%20patients">List Patients</a>
+            <a href="patients.php?req=search%20for%20a%20patient">Search for a Patient</a>
+            <a href="visits.php">List Visits</a>
+            <a href="appointments.php?req=new%20appointment">New Appointment</a>
+            <a href="appointments.php?req=today%27s%20appointment">Today's Appointment</a>
+            <a href="appointments.php?req=list%20appointments">List Appointments</a>
+            <a href="appointments.php?req=expired%20appointments">Expired Appointments</a>
+            <a href="appointments.php?req=kept%20appointments">Kept Appointments</a>
+            <a href="appointments.php?req=search%20appointments">Search Appointments</a>
+            <a href="inventory.php?req=view%20inventory">View Inventory</a>
+            <a href="inventory.php?req=add%20item">Add Item</a>
+            <a href="inventory.php?req=administer%20item">Administer Item</a>
+            <a href="users.php?req=list%20users">List Users</a>
+            <a href="users.php?req=add%20user">Add User</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="main">
+            <h2>Patient</h2>
+            <a href="patients.php?req=new%20patient">New Patient</a><br>
+            <a href="patients.php?req=list%20patients">List Patients</a><br>
+            <a href="patients.php?req=search%20for%20a%20patient">Search for a Patient</a><br>
+            <a href="visits.php">List Visits</a>
+        </div>
+        <div class="main">
+            <h2>Appointments</h2>
+            <a href="appointments.php?req=new%20appointment">New Appointment</a><br>
+            <a href="appointments.php?req=today%27s%20appointment">Today's Appointment</a><br>
+            <a href="appointments.php?req=list%20appointments">List Appointments</a><br>
+            <a href="appointments.php?req=expired%20appointments">Expired Appointments</a><br>
+            <a href="appointments.php?req=kept%20appointments">Kept Appointments</a><br>
+            <a href="appointments.php?req=search%20appointments">Search Appointments</a>
+        </div>
+        <div class="main">
+            <h2>Inventory</h2>
+            <a href="inventory.php?req=view%20inventory">View Inventory</a><br>
+            <a href="inventory.php?req=add%20item">Add Item</a><br>
+            <a href="inventory.php?req=administer%20item">Administer Item</a>
+        </div>
+        <div class="main">
+            <h2>Users</h2>
+            <a href="users.php?req=list%20users">List Users</a><br>
+            <a href="users.php?req=add%20user">Add User</a>
+        </div>
+    </div>
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+</body>
+</html>

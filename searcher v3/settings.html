@@ -1,0 +1,120 @@
+<!doctype Html>
+
+<head>
+    <title>searcher V3 | settings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/iconic.css">
+    <link rel="stylesheet" href="css/W3.css">
+
+    <style type="text/css" id="styles">
+    </style>
+</head>
+
+<body>
+	<header class="w3-padding-32 w3-text-white">
+		<h2 class="topicon" style="transition: 1.2s;"><i class="icon-settings"></i></h2>
+		<h1>Settings</h1>
+	</header>
+
+	<nav class="w3-bar w3-text-white w3-black" id="navbar" style="transition: 1.2s;">
+		<li class="w3-bar-item"><a href="javascript:history.back(0)"><i class="icon-chevron-left"></i></a></li>
+		<li class="w3-bar-item w3-right"><a href="index.html"><i class="icon-home"></i></a></li>
+	</nav>
+
+	<div class="w3-white">
+		<div class="w3-center w3-container">
+			<h2><b>color scheme</b></h2>
+			<button class="colorcode w3-circle w3-border-0" onclick="setColTheme(this)" data-color="#F321B5" style="background-color: #F321B5">
+				<i class="icon-check"></i>
+			</button>
+			<button class="colorcode w3-circle w3-border-0" onclick="setColTheme(this)" data-color="#3cb471" style="background-color: #3cb471">
+				<i class="icon-circle-o"></i>
+			</button>
+			<button class="colorcode w3-circle w3-border-0" onclick="setColTheme(this)" data-color="rgb(33, 221, 243) " style="background-color: rgb(33, 221, 243)">
+				<i class="icon-circle-o"></i>
+			</button>
+			<button class="colorcode w3-circle w3-border-0" onclick="setColTheme(this)" data-color="rgb(227, 97, 27) " style="background-color: rgb(227, 97, 27)">
+				<i class="icon-circle-o"></i>
+			</button>
+			<button class="colorcode w3-circle w3-border-0" onclick="setColTheme(this)" data-color="#4658c0" style="background-color: #4658c0">
+				<i class="icon-circle-o"></i>
+			</button>
+			<button class="w3-btn w3-purple w3-hide">color</button>
+			<button class="colorcode w3-circle w3-border-0" onclick="setColTheme(this)" data-color="#d8cf1b" style="background-color: #d8cf1b">
+				<i class="icon-circle-o"></i>
+			</button>
+			<br>
+
+			<div class="w3-padding-16 w3-center w3-black" style="transition: 1.2s;border-radius: 20px;margin:20px 0;" id="slider-holder">
+				<div>
+					<button class="w3-transparent w3-border-0" style="color: inherit;"><b>dark mode</b> </button>
+					<button class="s-toggle active w3-card" onclick="toggleDMode()" id="DModeSwitch"><span></span></button>
+				</div>
+				<div>
+					<button class="w3-transparent w3-border-0" style="color: inherit;"><b>portrait background</b> </button>
+					<button class="s-toggle active w3-card" onclick="togglePMode()" id="PModeSwitch"><span></span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="w3-center w3-container">
+			<h2><b>Wallpaper</b></h2>
+			
+			<div>
+				<div id="bg-holder">
+					<img src="img/back  (3).jpg" id="bg-img" onclick="setBg(this)" class="img-prev" style="width: auto;">
+					<div class="options">
+						<button id="prevBtn" class="navBtns w3-circle" onclick="navImg(--tmCount)">
+							<i class="icon-chevron-left"></i>
+						</button>
+						<button id="nowBtn" class="navBtns w3-circle" onclick="setImg(tmCount)">
+							<i class="icon-check"></i>
+						</button>
+						<button id="nextBtn" class="navBtns w3-circle" onclick="navImg(++tmCount)">
+							<i class="icon-chevron-right"></i>
+						</button>
+					</div>
+				</div>
+				<div class="w3-padding-16">
+					<h3>wallpaper options</h3>
+					<p class="data-describe w3-text-grey">click one to see what it does</p>
+					<form action="#" onsubmit="setUpper(this.querySelector('#UpperDisplay').value),navImg(this.querySelector('#navDisplay').value)" class="w3-padding-16">
+						<input type="number" class="w3-margin-bottom w3-input shadowy" oninput=",//seTxt(this.placeholder,'.data-describe',1,2)" placeholder="enter upper limit here" id="UpperDisplay">
+						<input type="number" class="w3-margin-bottom w3-input shadowy" oninput=",//seTxt(this.placeholder,'.data-describe',1,2)" placeholder="enter image number here" id="navDisplay">
+						<button class="w3-btn">go</button>
+					</form>
+					<button class="w3-btn theme-bg" onclick="setUpper(30)">defaults</button>
+					<p>copy image and paste it as <b>back  (<i>Number</i>).jpg</b> to be able to add it</p>
+				</div>
+			</div>
+		</div>
+
+		<i>work in progress</i>
+	</div>
+
+	<footer class="data-footer">
+		<p>&copy Shavaarts</p>
+	</footer>
+
+	<script type="text/javascript" src="js/superscript.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript">
+		function togglePMode() {
+			let dm = lbs.getItem('PMode');
+
+			if(dm == null){
+				lbs.setItem('PMode',1);
+			} else {
+				if(Number(lbs.getItem('PMode')) == 1){
+					lbs.setItem('PMode',0);
+				} else {
+					lbs.setItem('PMode',1)
+				}
+			}
+			initMe();
+		}		
+	</script>
+</body>
+</html>

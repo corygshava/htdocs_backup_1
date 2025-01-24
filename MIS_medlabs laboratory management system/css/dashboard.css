@@ -1,0 +1,80 @@
+body.imagebg{
+    /* background-image: url("../images/pexels-mart-production-7088831.jpg"); */
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* dashboard : main */
+.navigation .current{
+    border: 2px solid;
+}
+.tiles{
+    overflow: hidden;
+}
+.tiles .tile div.w3-col{
+    padding: 15px;
+}
+.tiles .tile div.w3-col button{
+    margin: 15px 0 0 0;
+}
+.tiles .tile h4{
+    margin: 12px 0 0 0;
+}
+.tile .notice{
+    margin:12px 0;
+    opacity: 0.8;
+}
+
+.Udetails{
+    background-color: #1313136c;
+}
+.Udetails span{
+    font-size: 30px;
+    margin: 20px;
+	display: inline-block;
+}
+
+/* searchreferals */
+.search-form{
+    padding:5px;
+    border-radius: 12px;
+    border: 1px solid grey;
+    background-color:#41414169;
+    font-size: 20px;
+}
+.search-form i{
+    padding: 1px 20px;
+}
+.search-form input{
+    padding: 5px 15px;
+    background: transparent;
+    border:none;
+    border-bottom: 4px solid #ffffff;
+    color:#fff;
+}
+.search-form input:focus{
+    background-color: #ffffff71;
+    border-color: dodgerblue;
+    color: #111;
+    outline: none;
+}
+
+/* inventory mng */
+
+.navigator{
+    padding: 20px 0;
+}
+.navigator button.active{
+    background: rgb(32, 32, 32);
+    color:#fff;
+}
+.navigator button{
+    background: rgb(218, 218, 218);
+    color:#111;
+}
+
+/* tables and stuff */
+
+.mytable{
+    margin: 25px 0 0 0;
+}

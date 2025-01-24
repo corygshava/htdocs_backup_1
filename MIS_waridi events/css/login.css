@@ -1,0 +1,102 @@
+body .content {
+    font-family: Arial, sans-serif;
+    background-color: var(--themebg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 0;
+    margin: 0;
+}
+
+.login-container {
+    background-color: var(--container-bg-color);
+    padding: 20px 40px;
+    border-radius: var(--roundMedium);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    min-width: 250px;
+    max-width: 400px;
+    width: 75%;
+    text-align: center;
+    color: var(--textColor);
+}
+
+.dataform{
+    background-color: var(--container-bg-color);
+    padding: 20px 40px;
+    border-radius: var(--roundSmall);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 400px;
+    max-width: 1200px;
+    width: 75%;
+}
+
+.login-container hr{
+    color: var(--themeborder);
+    border: 1px solid;
+}
+.login-container input, .login-container select, .dataform input, .dataform textarea, .dataform select{
+    width: 100%;
+    padding: 10px;
+    margin: 7px 0;
+    background-color: var(--themebg);
+    border: 1px solid var(--themeborder);
+    border-radius: var(--roundSmall);
+    transition: var(--transitionFast);
+    color: var(--textColor);
+}
+.login-container input:focus, .dataform input:focus, .login-container select:focus{
+    scale: 1.05;
+    box-shadow: 0 0 12px var(--primaryColor);
+    outline: none;
+    background-color: #fff;
+    color: var(--themebg);
+}
+
+.login-container button, .dataform button{
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0;
+    border: none;
+    border-radius: var(--roundSmall);
+    background-color: var(--primaryColor);
+    color: var(--textColor);
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transitionFast);
+}
+
+.login-container button:hover {
+    background-color: var(--secondaryColor);
+    scale: 1.07;
+}
+
+.login-container a{
+    color: var(--primaryColor);
+    font-weight: 800;
+    display: inline-block;
+    text-decoration: none;
+    margin: 7px 0;
+    transition: var(--transitionFast);
+}
+.login-container a:hover{
+    scale: 1.07;
+    color: var(--secondaryColor);
+    text-shadow: 0 0 12px var(--glowColor);
+}
+
+.toggle-theme {
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--button-bg-color);
+}
+
+.toggle-theme:hover {
+    text-decoration: underline;
+}
+
+.nptpanel{
+    padding: 12px 15px;
+}

@@ -1,0 +1,7 @@
+add an economy
+	integrate cash into system
+		when creating a delivery cash is reserved
+		when delivery fails cash is returned
+		when delivery succeeds cash is given to the driver (a cut goes to the company account)
+	deposit cash (only client)
+	withdraw cash (both client and driver)

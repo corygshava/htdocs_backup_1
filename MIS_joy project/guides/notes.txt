@@ -1,0 +1,7 @@
+the site's theme will be white with a dash of blue
+
+use cues from medlabs (should have the same vibe)
+
+notes
+
+add a field for age and gender

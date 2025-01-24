@@ -1,0 +1,205 @@
+<!doctype Html>
+
+<head>
+    <title>Notes creator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <link rel="stylesheet" href="notes/css/main.css">
+    <link rel="stylesheet" href="notes/css/w3.css">
+    <link rel="stylesheet" href="notes/css/font-awesome.min.css">
+    <link rel="stylesheet" href="notes/css/frontend.css">
+
+    <style>
+        .theme_round{border-radius: 15px;}
+        .holder{padding: 45px 20px;}
+    </style>
+</head>
+
+<body>
+    <header>My Notes</header>
+
+    <nav class="normal">
+        <li class="w3-text-blue"><a href="#">writer</a></li>
+        <li class="w3-hover-text-blue"><a href="exhibitions.html">exhibitions</a></li>
+        <li class="w3-hover-text-blue"><a href="notes/sermons.html">reader</a></li>
+    </nav>
+
+    <div class="main">
+        <div class="w3-row">
+            <div class="w3-col m6">
+                <h2 class="w3-center">Editor</h2>
+                <div class="input">
+                    <div>
+                        <div Class="text_holder w3-animate-opacity">
+                            <input type="text" name="textName" id="npt-value" oninput="startMe()" placeholder="type your title over here">
+                            <div class="w3-text-grey w3-center">type heading here</div>
+                        </div>
+
+                        <div Class="text_holder w3-animate-opacity">
+                            <select name="textDay" id="npt-sermon-type" oninput="saveTemp(2)">
+                                <option>sunday search the scriptures</option>
+                                <option>sunday teens</option>
+                                <option>wellspring</option>
+                                <option>Special (Kisumu)</option>
+                                <option>Special (Kitale)</option>
+                                <option>Special other</option>
+                                <option>personal</option>
+                            </select>
+                            <div class="w3-text-grey w3-center">which sermon are you typing</div>
+                        </div>
+
+                        <div Class="text_holder w3-center w3-animate-opacity">
+                            <input type="text" name="Notes" placeholder="type your notes right here" id="npt-text">
+                            
+                            <button class="w3-text-blue w3-button w3-hover-white w3-hover-text-black w3-white" onclick="addTo()"><i class="fa fa-plus"></i></button>
+                            <button class="w3-text-blue w3-button w3-hover-white w3-hover-text-black w3-white" onclick="addVerse()"><i class="fa fa-book"></i></button>
+                            <button class="w3-text-blue w3-button w3-hover-white w3-hover-text-black w3-white" onclick="addQuote()"><i class="fa fa-quote-right"></i></button>
+                            <button class="w3-text-blue w3-button w3-hover-white w3-hover-text-black w3-white" onclick="addHeading()"><i class="fa fa-header"></i></button>
+
+                            <div class="data-errlog w3-text-grey">type some notes first</div>
+                        </div>
+                    </div>
+
+                    <div class="w3-center navigator">
+                        <button onclick="navMe(0)">title</button>
+                        <button onclick="navMe(1)">type</button>
+                        <button onclick="navMe(2)">notes</button>
+                    </div>
+
+                    <div class="container w3-center">
+                        <button id="hinter" class="w3-button w3-orange theme_round" onclick="toggleShowC(this,1),toggleShowC('.hint',0),replayTut()">hint</button>
+                    </div>
+
+                    <div class="hint w3-center" data-shown="1">
+                        <div class="tutorial theme_round mybg w3-text-white">
+                            <img src="notes/imgs/cat2.jpg" alt="tutorial bg" class="theme_round myimg">
+                            <div class="overlay">
+                                <div class="tutext normanim">
+                                    <i class="fa fa-plus w3-text-blue"></i><br><span>this adds a point</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <i class="fa fa-book w3-text-blue"></i><br><span>this adds a verse</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <i class="fa fa-quote-right w3-text-blue"></i><br><span>this adds a quote</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <i class="fa fa-header w3-text-blue"></i><br><span>this adds a heading</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <button class="w3-btn w3-circle w3-black"><i class="fa fa-trash"></i></button><span>this deletes this sermon <br>(if it exists)</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <button class="w3-btn w3-circle w3-black"><i class="fa fa-list"></i></button><span> to enter the sermon <br>exhibition</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <button class="w3-btn w3-circle w3-black"><i class="fa fa-save"></i></button><span>this saves your notes</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <button class="w3-btn w3-circle w3-black"><i class="fa fa-check"></i></button><span>this adds a new sermon</span>
+                                </div>
+                                <div class="tutext normanim">
+                                    <button class="w3-btn w3-circle w3-black"><i class="fa fa-refresh"></i></button><span>this continues from <br>last saved point</span>
+                                </div>
+                                <div class="tutext endanim">
+                                    <button class="w3-btn w3-orange theme_round" onclick="replayTut()"><i class="fa fa-eye-slash"></i></button>
+                                    <br><span>this closes the tutorial</span>
+                                </div>
+                                <div class="tutext endanim">
+                                    <button class="w3-btn w3-orange theme_round" onclick="replayTut()"><i class="fa fa-play"></i></button>
+                                    <br><span>this replays the tutorial</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-hide">
+                            <h3>notebar buttons</h3>
+                            <span>smash <i class="fa fa-plus w3-text-blue"></i> to add a point</span>
+                            <span>smash <i class="fa fa-book w3-text-blue"></i> to add a verse</span>
+                            <span>smash <i class="fa fa-quote-right w3-text-blue"></i> to add a quote</span>
+                            <span>smash <i class="fa fa-header w3-text-blue"></i> to add a heading</span>
+                            <hr>
+                            <h3>toolbar buttons</h3>
+                            <span>smash <button class="w3-btn w3-circle w3-red"><i class="fa fa-trash"></i></button> to delete this sermon (if it already exists)</span>
+                            <span>smash <button class="w3-btn w3-circle w3-green"><i class="fa fa-list"></i></button> to enter the sermon exhibition</span>
+                            <span>smash <button class="w3-btn w3-circle w3-green"><i class="fa fa-save"></i></button> to save</span>
+                            <span>smash <button class="w3-btn w3-circle w3-green"><i class="fa fa-check"></i></button> to save if the saving function doesnt work correctly</span>
+                            <span>smash <button class="w3-btn w3-circle w3-green"><i class="fa fa-refresh"></i></button> to continue from where you left off last time</span>
+                        </div>
+                        <div class="w3-padding-32">
+                            <button class="w3-button w3-orange theme_round" onclick="toggleShow('.hint'),toggleShowD('#hinter','inline-block','none',0)"><i class="fa fa-eye-slash"></i></button>
+                            <button class="w3-button w3-orange theme_round" onclick="replayTut()"><i class="fa fa-play"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col m6">
+                <h2 class="w3-center">Notes preview</h2>
+                <div class="holder">
+                    <div class="value_cont w3-white w3-card">
+                        <div class="v-header">
+                            <span class="v-heading w3-wide w3-purple">Notes</span>
+                        </div>
+                        <div class="v-verses">
+                            
+                        </div>
+                        <div class="v-notes">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Buttons w3-bottom w3-right-align">
+        <button class="w3-button w3-round  w3-black w3-red-hover" onclick="delMe()"><i class="fa fa-trash"></i></button>
+        <a class="w3-button w3-round w3-black w3-blue-hover" href="exhibitions.html"><i class="fa fa-list"></i></a>
+        <button id="save1" class="w3-button w3-round w3-black w3-blue-hover" onclick="save(0)"><i class="fa fa-save"></i></button>
+        <button id="save2" class="w3-button w3-round w3-black w3-blue-hover" onclick="save(1)"><i class="fa fa-check"></i></button>
+        <button class="w3-button w3-round  w3-black w3-blue-hover rld" onclick="toggleShow('.rld');saveTemp(3);" data-shown="1"><i class="fa fa-refresh"></i></button>
+    </div>
+
+    <div id="modal01" class="w3-modal" data-shown="0">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image" onclick="toggleShow('#modal01')"><i class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-padding-32">
+          <div>
+            <p id="caption" class="w3-large">we saved your work</p>
+            <button class="w3-button w3-hover-white" onclick="toggleShow('#modal01')">start new</button>
+            <button class="w3-button w3-hover-grey w3-round w3-green" onclick="toggleShow('#modal01');saveTemp(3);toggleShow('.rld');">continue</button>
+          </div>
+        </div>
+    </div>
+
+    <div id="modal02" class="w3-modal" data-shown="0">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close popup" onclick="toggleShow('#modal02')"><i class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-padding-32">
+          <div>
+            <p id="caption" class="w3-large">the title already exists</p>
+            <button class="w3-button w3-hover-white" onclick="toggleShow('#modal02')">change</button>
+            <button class="w3-button w3-hover-grey w3-round w3-green" onclick="toggleShow('#modal02');save(2);">update</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="w3-hide">
+        <div class="titles w3-white w3-card">
+            <b>new one</b>
+        </div>
+    </div>
+
+    <!-- <div class="w3-white w3-center">
+        <p>want to view sermons you typed<br><a href="exhibitions.html" class="w3-button w3-blue w3-round-small" style="margin: 12px 0;">click here</a></p>
+    </div> -->
+
+    <footer style="padding: 16px 10px;" class="w3-white">
+        <p>&copy shava arts</p>
+    </footer>
+</body>
+
+<script type="text/javascript" src="notes/js/superscript.js"></script>
+<script type="text/javascript" src="notes/js/cre8.js"></script>
+<script type="text/javascript" src="notes/js/frontend.js"></script>
+<script>
+    navMe(0);
+</script>

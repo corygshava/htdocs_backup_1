@@ -1,0 +1,90 @@
+article cite{
+    color: var(--citeColor);
+    font-size: var(--citeTextSize);
+}
+
+.hero{
+    height: clamp(450px,100vh,900px);
+    position: relative;
+}
+.hero .herotxt{
+    width: 100%;
+    padding: 75px 50px;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+
+    font-size: 17px;
+}
+.hero .herotxt span.heading{
+    font-size: 55px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    background-image: var(--themeGradient);
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--shadowDark);
+}
+.hero .herotxt a{
+	padding: 25px;
+	border: 2px solid rgba(255,255,255,0.7);
+	display: inline-block;
+	margin: 25px 0;
+	background: rgba(24, 24, 24, 0.3);
+	text-decoration: none;
+    transition: 0.5s ease-out;
+}
+.hero .herotxt a:hover{
+    background-color: white;
+    color: #111;
+}
+
+/* for slideshows */
+.slideguy{
+    position: relative;
+}
+.slideguy .options{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    transition: 0.4s ease-out;
+}
+.slideguy .options:hover{
+    opacity:0;
+}
+.slideguy .options button{
+    height:15px;
+    border: none;
+    margin: 2px 15px 12px 0;
+}
+.slideguy .options button{
+    transition: var(--transitionFast);
+}
+.slideguy .options button.current{
+    background-color: var(--primaryColor);
+}
+.slideguy .slides .slide{
+    background-color: rgba(24, 24, 24, 0.74);
+    background-image: linear-gradient(-90deg,transparent,rgba(0, 61, 46, 0.8));
+    color: #fff;
+    display: none;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+.slideguy .slides .slide .slideimg{
+    width: 100%;
+}
+.slideguy .slides .slide .overlay{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    translate: 50% -50%;
+    background-color: rgba(24, 24, 24, 0.3);
+}
+.slideguy .slides h3{
+    color: var(--primaryColor);
+    font-size: 45px !important;
+}

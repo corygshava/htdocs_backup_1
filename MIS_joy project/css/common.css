@@ -1,0 +1,84 @@
+:root{
+    --primaryColor : #0077ff;
+    --complimentaryColor : #0058aa;
+    --themeGradient : linear-gradient(80deg,var(--complimentaryColor),var(--primaryColor));
+    --transitionFast : 0.4s ease-out;
+}
+*{
+    font-family: 'calibri';
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    background-image: url('hospital_background.jpg'); /* Add your hospital background image */
+    background-size: cover;
+    background-position: center;
+}
+html{
+    scroll-behavior: smooth;
+}
+footer{
+    padding: 25px 35px;
+}
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+nav a {
+    text-decoration: none;
+    padding: 25px !important;
+    display: inline-block;
+}
+nav a.active {
+    font-weight: bold;
+    color: dodgerblue;
+}
+nav .w3-dropdown-content{
+    top: 75px;
+}
+
+/* theme based styles */
+.themetxt{
+    color: var(--primaryColor) !important;
+}
+.themetxt-hover:hover{
+    color: var(--primaryColor) !important;
+}
+.themebg-hover:hover{
+    background-color: var(--primaryColor) !important;
+    color: #fff;
+}
+.themebg2-hover:hover{
+    background-color: var(--complimentaryColor) !important;
+    color: #fff;
+}
+.themecard {
+    /* width: calc(50% - 20px); */
+    margin: 20px 25px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 5px;
+    min-height: 250px;
+}
+.themebg{
+    background-color: var(--primaryColor) !important;
+}
+
+
+@media only screen and (max-width:601px){
+    .halfguy{
+        width: 90%;
+        margin: 70px auto;
+    }
+}
+@media only screen and (min-width:601px){
+    .halfguy{
+        width: 50%;
+        margin: 95px auto;
+    }
+}

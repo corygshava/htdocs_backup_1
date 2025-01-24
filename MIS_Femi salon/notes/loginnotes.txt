@@ -1,0 +1,15 @@
+I have added comments to each section explaining what it does:
+
+    The PHP code checks if there is an 'error' parameter in the GET request. If so, it further checks if the error is 'login successful' or 'record added'. If either condition is true, it includes JavaScript code to redirect to 'dashboard.php'.
+
+    The HTML code starts with the <!DOCTYPE html> declaration and contains the structure of the login page.
+
+    The navigation bar is displayed at the top of the page.
+
+    Inside the PHP block, it checks if the 'userdata' cookie is set. If it is set, it displays a welcome message and options to logout or go to the dashboard.
+
+    If the 'userdata' cookie is not set, it displays the login form.
+
+    The JavaScript function setval is defined to set the value of an input field.
+
+    The footer is displayed at the bottom of the page.

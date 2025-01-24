@@ -1,0 +1,167 @@
+html{scroll-behavior: smooth;}
+body{Margin:0;background-repeat:no-repeat;background-attachment:fixed;}
+a{text-decoration: none;}
+header{padding:25px;text-align:center;font-size:30px;}
+
+.link-holder,.input-holder{
+  width:96%;
+  margin:12px 2% 60px 2%;
+  box-shadow:0 0 12px rgba(50,50,50,0.2);
+  border-radius:5px;
+}
+.link-holder {
+  padding:12px 0 0 0;
+}
+.link-holder a{
+  display:block;
+  padding:15px 12px;
+  text-decoration:none;
+  color:Inherit;
+}
+.link-holder b{
+  color:dodgerblue;
+}
+
+.controls{
+  position:fixed;
+  bottom:60px;
+  right:0;
+  width:100%;
+  padding:15px;
+  text-align:right;
+}
+.controls button{
+  width:50px;
+  height:50px;
+  display:inline-block;
+}
+.controls a{
+  padding: 12px 16px;
+  font-size: 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+.controls a.on{
+  transition: 1.2s;
+}
+.controls a.on .ne{
+  transform: rotate(225deg);
+  display: inline-block;
+  transition: inherit;
+}
+.controls a.on .na{
+  transform: rotate(0deg);
+  display: inline-block;
+  transition: inherit;
+}
+.more-controls{
+  display: inline-block;
+}
+
+.input-holder{
+ padding:15px;
+}
+.input-holder input{
+ padding:10px;
+ border-radius:5px;
+ background: rgba(255,255,255,0.4);
+ border:none;
+ margin:12px 2%;
+ width:96%;
+}
+.input-holder .type-buttons{
+  padding: 12px 0;
+}
+
+.link-selector a{
+  display: inline-block !important;
+  padding: 12px;
+  background: transparent;
+}
+.link-selector a.chosen{
+  border-radius: 5px;
+}
+
+.data-search{
+  padding: 12px 0;
+}
+.data-search input{
+  width: 75%;
+  background: transparent;
+  border:none;
+  border-bottom: 2px solid #fff;
+  color: inherit;
+  padding: 5px;
+  margin: 12px 0;
+}
+.data-search #sch_count{
+  display: block;
+  padding: 5px;
+}
+
+/*settings styles*/
+.colorcode,.navBtns{
+  width: 35px;
+  /*padding: 12px 6px;*/
+  height: 35px;
+  margin: 6px;
+  color: #fff;
+  border:none;
+  cursor: pointer;
+}
+
+.s-toggle {
+  padding: 0;
+  display: inline-block;
+  width: 35px;
+  background: #777;
+  height: 20px;
+  border-radius: 35px;
+  border:none;
+  transition: 1.2s;
+}
+.s-toggle span {
+  display: inline-block;
+  padding: 10px;
+  height: 12px;
+  width: 12px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 0 0 0 -50%;
+  transition: inherit;
+}
+
+.s-toggle.active{
+  background: #AEB9B9;
+}
+
+.s-toggle.active span{
+  margin: 0 0 0 50% !important;
+  box-shadow: 0 0 10px 2px #1fd3cd;
+}
+.shadowy{
+  box-shadow: 3px 3px 12px 5px rgba(134, 128, 128, 0.18);
+}
+.theme-round{
+  border-radius:20px;
+}
+
+#bg-img{
+  border-radius:20px;
+  min-height:250px;
+  max-height:450px;
+}
+#bg-holder{
+  position: relative;
+}
+#bg-holder .options{
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}
+
+footer{
+  padding: 25px 12px;
+  color:#fff;
+}
+footer .dis{text-align:center;}

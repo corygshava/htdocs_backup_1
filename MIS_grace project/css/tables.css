@@ -1,0 +1,37 @@
+.tableholder{
+    min-width: 350px;
+    max-width: 1250px;
+    width: 90%;
+    margin: 75px auto;
+    padding: 25px 0;
+}
+.bottomopt{
+    padding: 15px 0;
+    text-align: center;
+}
+.bottomopt button{
+    padding: 8px 25px;
+    border-radius: var(--roundSmall);
+    background-color: var(--primaryColor);
+    border: none;
+    transition: var(--transitionFast);
+}
+.bottomopt button:hover{
+    background-color: var(--secondaryColor);
+    scale: 1.07;
+}
+
+.tableholder a{
+    padding: 8px 12px;
+    margin: 7px 0;
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--primaryColor);
+    color: var(--textColor);
+    border-radius: var(--roundSmall);
+    transition: var(--transitionFast);
+}
+.tableholder a:hover{
+    background-color: var(--secondaryColor);
+    scale: 1.1;
+}

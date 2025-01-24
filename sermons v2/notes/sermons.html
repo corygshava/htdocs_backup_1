@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sermon notes</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style type="text/css">
+    	.value_cont span.v-heading{display: none;}
+		nav{width: 100%;}
+		a{cursor: pointer;}
+		header{border-radius: 0 0 50px 50px;}
+
+		#heading{text-shadow: 0px 0px 10px rgba(0,0,0,0.6);text-transform: uppercase;}
+		.main{margin: -50px 0 0 0;z-index: 2;border-radius: 0px !important;}
+    </style>
+</head>
+<body>
+	<nav class="w3-top w3-right-align">
+		<a href="../exhibitions.html" style="text-shadow: 0px 0px 10px rgba(0,0,0,0.6);" class="w3-btn w3-transparent w3-text-white w3-hover-text-purple"><i class="fa fa-list"></i></a>
+		<a href="../cre8.html" target="blank" style="text-shadow: 0px 0px 10px rgba(0,0,0,0.6);" class="w3-btn w3-transparent w3-text-white w3-hover-text-purple"><i class="fa fa-plus"></i></a>
+		<button class="w3-btn w3-transparent w3-text-white w3-hover-text-purple" style="text-shadow: 0px 0px 10px rgba(0,0,0,0.6);" onclick="EditSermon()"><i class="fa fa-pencil"></i></button>
+		<button class="w3-btn w3-black" onclick="toggleShow('.sidenav'),toggleClass('#menuIcon','fa fa-bars w3-hover-text-blue','fa fa-close w3-hover-text-red')"><i class="fa fa-bars w3-hover-text-blue" id="menuIcon"></i></button>
+		<div class="sidenav w3-animate-opacity" data-shown="1">
+			<div class="w3-animate-zoom w3-center w3-padding-32">
+				
+			</div>
+			<div id="rev" class="w3-bar-block w3-white">
+				<div id="revised">
+					<span>start</span>
+				</div>
+				<div id="cont">
+					<span>start</span>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<header class="w3-display-container special">
+		<img src="imgs/cat1.jpg" alt="category image" class="w3-image" id="catImg">
+		<div class="w3-display-middle">
+			<span id="heading"></span><br>
+			<button class="w3-purple" id="sermonType" style="font-size: 12px;border-radius: 15px;padding: 10px;border:none;">the sermon type</button>
+		</div>
+	</header>
+
+	<div class="main w3-padding-64">
+		<div class="value_cont w3-white w3-card" style="border-radius:0px;">	
+		</div>
+	</div>
+
+	<div id="modal02" class="w3-modal" data-shown="0" style="overflow-y:auto;Z-index:5">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close popup" onclick="toggleShow('#modal02')"><i class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-padding-32">
+          <div>
+            <p id="caption" class="w3-large">the title already exists</p>
+            <button class="w3-button w3-hover-white" onclick="toggleShow('#modal02')">change</button>
+            <button class="w3-button w3-hover-grey w3-round w3-green" onclick="toggleShow('#modal02');save(2);">update</button>
+          </div>
+        </div>
+    </div>
+
+	<footer class="w3-black w3-container w3-padding-16 w3-bottom" style="z-index:1;">
+		&Copf;Shavaarts
+	</footer>
+	
+	<footer class="w3-black w3-container w3-padding-16" Style="visibility:hidden  ">
+		&Copf;Shavaarts
+	</footer>
+</body>
+<script type="text/javascript" src="js/SuperScript.js"></script>
+<script type="text/javascript">
+	var myval;
+	var head;
+	var thebody;
+	var sermon_type = lbs.getItem('curSumType') == null ? 'sunday search the scriptures' : lbs.getItem('curSumType');
+	var sermonShow = document.querySelector('#sermonType');
+
+	function showSum() {
+		myval = lbs.getItem('curSum');
+		head = document.getElementById('heading');
+		body = document.querySelector('.value_cont');
+		print("its set");
+
+		var sidenav = document.querySelector('#cont');
+		var theText = myval != null ? myval : 'no sermon selected';
+		var rev = document.querySelector('#revised');
+
+		body.innerHTML = lbs.getItem(myval);
+		head.innerHTML = theText;
+		sidenav.innerHTML = lbs.getItem('titles');
+		rev.innerHTML = '<li class="w3-bar-item w3-center"><h2>Your Notes</h2></li>';
+
+		let as,hay = sidenav;
+		let lis = sidenav.querySelectorAll('li');
+
+		thebody = body;
+		//print(thebody.innerHTML);
+
+		for (var i = 0; i < lis.length; i++) {
+			as = lis[i].innerHTML;
+
+			if(as.toUpperCase() == theText.toUpperCase()){
+				rev.innerHTML += '<a class="w3-bar-item w3-text-blue" onclick="viewSmnB(\''+ as +'\')">'+ as + '</a>'
+			} else {
+				rev.innerHTML += '<a class="w3-bar-item w3-hover-text-blue" onclick="viewSmnB(\''+ as +'\')">'+ as + '</a>';
+			}
+		}
+
+		SermonTypeFinder(sidenav,head);
+		print(`its done`);
+	}
+
+	function SermonTypeFinder(m,curhead){
+		var curLis = m.querySelectorAll('li');
+		var catNo = 1;
+		var theimg = document.querySelector('#catImg');
+		print(`initiating result using the array of length ${curLis.length}`)
+
+		for(var x = 0; x < curLis.length;x++){
+			print(`doing round ${x + 1}`);
+			if(curLis[x].innerHTML == curhead.innerHTML){
+				print(`its ${curLis[x].innerHTML}`);
+				sermon_type = curLis[x].dataset.sermontype;
+			} else {
+				print(`its not ${curLis[x].innerHTML}`);
+			}
+		}
+
+		if(sermon_type == 'sunday search the scriptures'){
+			catNo = 1;
+		} else if(sermon_type == 'sunday teens'){
+			catNo = 2;
+		} else if(sermon_type == 'wellspring'){
+			catNo = 3;
+		} else if(sermon_type == 'Special (Kisumu)'){
+			catNo = 4;
+		} else if(sermon_type == 'Special (Kitale)'){
+			catNo = 5;
+		} else if(sermon_type == 'Special other'){
+			catNo = 6;
+			if(curhead.innerHTML.toUpperCase().indexOf('CHRISTMAS') > -1){
+				catNo = 6 + 'a';
+				print(`it has christmas in it`);
+			} else if(curhead.innerHTML.toUpperCase().indexOf('EASTER') > -1){
+				catNo = 6 + 'b';
+				print(`it has easter in it`);
+			} else {
+				print(`there is no christmas in ${curhead.innerHTML}`)
+			}
+		} else if(sermon_type == 'personal'){
+			catNo = 7;
+		}
+
+		theimg.src = `imgs/cat${catNo}.jpg`;
+		print(theimg.src);
+		sermonShow.innerHTML = sermon_type;
+	}
+
+	function viewSmnB(v) {
+		lbs.setItem('curSum',v);
+		toggleShow('.sidenav');
+		toggleClass('#menuIcon','fa fa-bars w3-hover-text-blue','fa fa-close w3-hover-text-red');
+		showSum();
+	}
+
+	function homeMe() {
+		window.location.assign('../cre8.html');
+	}
+
+	function EditSermon(){
+		print("work in progress");
+
+		//print(thebody.innerHTML);
+		var mynotes = thebody.querySelector('.v-notes');
+		var myverses = thebody.querySelector('.v-verses');
+
+		//print(mynotes.innerHTML);
+		//print(myverses.innerHTML);
+
+		sessionStorage.setItem('tempData1',mynotes.innerHTML);
+        sessionStorage.setItem('tempData2',myverses.innerHTML);
+        sessionStorage.setItem('tempData3',myval);
+        sessionStorage.setItem('tempData4',sermon_type);
+        console.log('replaced current saved data');
+
+		homeMe();
+	}
+
+	showSum();
+	toggleShow('.sidenav');
+</script>
+</html>

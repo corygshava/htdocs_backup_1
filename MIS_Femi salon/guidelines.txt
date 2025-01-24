@@ -1,0 +1,14 @@
+manage salon details
+manage day by day salon bookings
+manage salon transaction reports
+" services (sessions)
+" billing
+" employees' details
+" customer details
+" notification details
+" transactions
+add data to the system
+
+{employee id,password}
+
+// user friendly interface

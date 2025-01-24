@@ -1,0 +1,141 @@
+<!doctype Html>
+
+<head>
+    <title>searcher V3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/iconic.css">
+    <link rel="stylesheet" href="css/W3.css">
+    <style type="text/css" id="styles">
+        
+    </style>
+</head>
+
+<body>
+    <header>My Links</header>
+    <div>
+        <!--<div class="link-holder">
+            <a><b>apps</b></a>
+            <a href="">download traffic rider</a>
+             <a href="">download mobizen</a>
+             <a href="">download Racing fever moto</a>
+   <a href="">download vivavideo Or filmora</a>
+        </div>
+        
+        <div Class="link-holder">
+            <a ><b>Songs</b></a>
+            <a>  Best Ed Theme Song</a>
+            <a>jordan Hollywood x QC - testament</a>
+            <a>Ryan Caraveo - take Me Down</a> 
+            <a>ryan Caraveo Ghost</a>
+            <a>Cadmium - seasons</a>
+            <a>Monster Gmv</a>
+            <a>Street Fight Gmv</a>
+            <a>lost on The Way Gmv</a>
+            <a>Kill This Love Gmv</a>
+            <a>Zach Williams Prison Song</a>
+            <a>kina get You The Moon</a>
+https://m.apkpure.com/search?q=Driving+game
+        </div>
+-->
+
+        <div class="xtra w3-center link-holder data-search" data-shown="1">
+            <span id="sch_count">type below to search</span>
+            <input type="text" name="search" id="sch_npt" class="theme-bod" oninput="search()"><br>
+            <button class="w3-btn w3-circle theme-bg w3-text-black" onclick="search()"><i class="icon-search"></i></button>
+            <button class="w3-btn w3-circle theme-bg w3-text-black" onclick="toggleShow('.data-search')"><i class="icon-close"></i></button>
+        </div>
+        
+        <div class="xtra input-holder w3-center data-adder" data-shown="1">
+            <input id="npt-value" type="text" placeholder="type Your caption Here"><br>
+            <input id="npt-link" type="hyperlink" placeholder="Enter Your Link Address Here" onclick="toggleShow('#link-options')"><br>
+            <div style="display: none;" id="link-options" data-shown="0">
+                <span class="theme-txt w3-text-pink"><b>Auto generate link</b></span><br>
+                <button data-url="http://" onclick="appendLink(this,1,2)" class="w3-tag theme-round w3-border-0 w3-round w3-margin-bottom w3-blue">http://</button>
+                <button data-url="https://" onclick="appendLink(this,1,2)" class="w3-tag theme-round w3-border-0 w3-round w3-margin-bottom w3-blue">https://</button>
+                <button data-url="ftp://" onclick="appendLink(this,1,2)" class="w3-tag theme-round w3-border-0 w3-round w3-margin-bottom w3-blue">ftp://</button>
+                <button data-url="https://google.com/search?q=" onclick="appendLink(this,1,1)" class="w3-tag w3-border-0 w3-round w3-margin-bottom w3-blue">google</button>
+                <button data-url="https://www.youtube.com/results?search_query=" onclick="appendLink(this,1,1)" class="w3-tag w3-border-0 w3-round w3-margin-bottom w3-blue">youtube</button>
+                
+                <button data-url="https://tubidy.mobi/search.php?q=" onclick="appendLink(this,1,1)" class="w3-tag w3-border-0 w3-round w3-margin-bottom w3-blue">tubidy.mobi search </button>
+                 <button data-url="https://m.apkpure.com/search?q=" onclick="appendLink(this,1,1)" class="w3-tag w3-border-0 w3-round w3-margin-bottom w3-blue">Apkpure</button>
+            </div>
+            <input type="hidden" id="npt-type" value="0">
+            <b>type</b>
+            <div class="type-buttons">
+	            <button class="type-npt-buttons w3-button w3-circle chosen" onclick="chooseTypeB(1)"><i class="icon-music"></i></button>
+	            <button class="type-npt-buttons w3-button w3-circle" onclick="chooseTypeB(2)"><i class="icon-gamepad"></i></button>
+	            <button class="type-npt-buttons w3-button w3-circle" onclick="chooseTypeB(3)"><i class="icon-android"></i></button>
+	            <button class="type-npt-buttons w3-button w3-circle" onclick="chooseTypeB(4)"><i class="icon-video-camera"></i></button>
+	            <button class="type-npt-buttons w3-button w3-circle" onclick="chooseTypeB(5)"><i class="icon-globe"></i></button>
+	        </div>
+	        <div>
+	        	<button class="w3-btn w3-circle theme-bg w3-text-black" onclick="toggleShow('.data-adder')"><i class="icon-close"></i></button>
+	        	<button class="w3-btn w3-circle theme-bg w3-text-black" onclick="addMyLink()"><i class="icon-plus"></i></button>
+	        </div>
+        </div>
+        
+        <div class="link-holder">
+        	<nav class="link-selector w3-center" style="width: 100%;">
+        		<a href="#" class="type-link chosen" onclick="chooseType(1)" style="display: inline-block !important;"><i class="icon-music"></i></a>
+        		<a href="#" class="type-link" onclick="chooseType(2)" style="display: inline-block !important;"><i class="icon-gamepad"></i></a>
+        		<a href="#" class="type-link" onclick="chooseType(3)" style="display: inline-block !important;"><i class="icon-android"></i></a>
+        		<a href="#" class="type-link" onclick="chooseType(4)" style="display: inline-block !important;"><i class="icon-video-camera"></i></a>
+        		<a href="#" class="type-link" onclick="chooseType(5)" style="display: inline-block !important;"><i class="icon-globe"></i></a>
+        	</nav>
+            <div id="type-title">
+                <a><b>link Title</b></a>
+            </div>
+            <div id="links">
+                <a href="#">link Test</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal01" class="xtra w3-modal data-search" data-shown="0">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image" onclick="toggleShow('#modal01')"><i class="icon-close"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-padding-32 backbg">
+          <div>
+            <p id="caption" class="w3-large">Do you want to delete </p>
+            <button class="w3-button w3-hover-white" onclick="toggleShow('#modal01')">cancel</button>
+            <button class="w3-button w3-hover-grey w3-round w3-red" onclick="toggleShow('#modal01');deleteCat(0,0)">ok</button>
+          </div>
+        </div>
+    </div>
+    
+    <div class="w3-padding-64 "><i style="visibility:hidden">that's All</i></div>
+
+    <div class="controls">
+        <div class="more-controls  w3-animate-opacity" data-shown="0" style="display: none;">
+        	<a class="w3-circle theme-bg w3-border-0" href="settings.html">
+                <i class="icon-settings"></i>
+            </a>
+        	<a class="w3-circle theme-bg  w3-border-0" href="#" onclick="StartMore(),toggleShow('.data-adder'),showMore(GetElement('#toggler'))">
+                <i class="icon-magic"></i>
+            </a>
+            <a class="w3-circle theme-bg  w3-border-0" href="#" onclick="StartMore(),toggleShow('.data-search'),showMore(GetElement('#toggler'))">
+                <i class="icon-search"></i>
+            </a>
+        	<a class="w3-circle theme-bg  w3-border-0" href="#" onclick="StartMore();toggleShow('#modal01');DelInit()">
+                <i class="icon-delete"></i>
+            </a>
+        </div>
+        <a class="w3-circle themeBtn w3-border-0 on" onclick="showMore(this)" id="toggler"><i class="icon-menu na" id="mne"></i></a>
+    </div>
+    
+    <footer class="w3-bottom">
+        <div class="dis">
+            &copy Shavaarts
+        </div>
+    </footer>
+</body>
+
+<script type="text/javascript" src="js/SuperScript.js"></script>
+<script type="text/javascript" src="js/MainScript.js"></script>
+<script type="text/javascript">
+    toggleShow('.data-adder');
+    toggleShow('.data-search');
+	ShowMyLinks();
+    init();
+</script>
