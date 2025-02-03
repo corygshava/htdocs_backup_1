@@ -1,0 +1,5 @@
+algorithms for how the site works are here
+
+<!-- 
+make a sitemap considering my website is called nora.com and my pages include (services.php,index.php,about us.php,articles.php,contacts.php,readarticle.php) and the priority reduces as the pages go down and all the pages were all updated 2 days ago
+ -->

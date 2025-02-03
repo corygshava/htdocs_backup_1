@@ -1,0 +1,45 @@
+.smallmenu.larger{
+    position: sticky;
+    top: 45px;
+}
+.healthlistholder{
+    position: relative;
+}
+.tab2Options{
+    position: sticky;
+    width: 100%;
+    text-align: center;
+    z-index: 25;
+}
+.healthList{
+    padding-bottom: 20px;
+}
+.healthList h2{
+    padding: 20px 15px;
+}
+.healthListItem{
+    position: relative;
+    padding: 5px 12px;
+}
+.healthListItem:hover{
+    /* border-bottom: 2px solid var(--primaryColor); */
+    background-image: linear-gradient(to right,transparent,rgba(63, 223, 0, 0.39));
+}
+.healthListItem a{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.healthListItem a b{
+    padding: 5px 7px;
+    background-color: lightgrey;
+    display: inline-block;
+}
+.healthListItem:hover a b{
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--primaryColor);
+}
+.healthListItem{
+    border:none;
+}

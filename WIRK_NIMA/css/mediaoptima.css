@@ -1,0 +1,121 @@
+@media only screen and (max-width:601px){
+    .myhero .herotxt{
+        width: 100%;
+        height: 100%;
+        padding: 75px 50px;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 61, 46, 0.623);
+        text-align: center;
+    }
+    .slideguy .slides .slide{
+        height: 480px;
+        min-height: auto;
+        max-height: 200vh;
+    }
+
+    .article-img{
+        width: 100%;
+        margin: 12px auto;
+        height: auto;
+    }
+
+    nav a{
+        padding: 25px !important;
+    }
+    nav a.current{
+        margin: 0;
+        background-image: var(--themeGradient) !important;
+    }
+
+    .midcard,.articles{
+        width: 96%;
+        margin: 65px auto;
+    }
+
+    .tab2Options{
+        top: 15px;
+    }
+
+    .text-holder{
+        padding: 15px 5px;
+    }
+
+    .holdercard div{
+        text-align: center !important;
+    }
+}
+@media only screen and (min-width: 700px){
+    .myhero .herotxt{
+        width: 100%;
+        height: 100%;
+        padding: 20% 35px;
+        top: 0;
+        right: 0;
+        background-image:linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+        text-align: center;
+    }
+    nav a{
+        margin: 18px 5px;
+        padding: 15px 20px !important;
+        font-size: 1.1rem;
+    }
+    nav a.current{
+        border-radius: 15px;
+        background-image: var(--themeGradient) !important;
+    }
+    
+    .text-holder{
+        padding: 15px 35px;
+    }
+}
+@media only screen and (min-width:901px){
+    .myhero .herotxt{
+        width: 45%;
+        height: 100%;
+        padding: 24vh 35px;
+        top: 0;
+        right: 0;
+        background-image:linear-gradient(to right, transparent, rgba(0,0,0,0.7));
+        text-align: left;
+    }
+    .slideguy .slides .slide{
+        min-height: 380px;
+        max-height: 500px;
+    }
+
+    .article-img{
+        width: auto;
+        margin: 12px auto;
+        height: 75vh;
+    }
+
+    nav a{
+        margin: 18px 5px;
+        padding: 7px 20px !important;
+        font-size: 1.1rem;
+    }
+    nav a.current{
+        border-radius: 15px;
+        background-image: var(--themeGradient) !important;
+    }
+
+    .midcard{
+        width: 45%;
+        margin: 65px auto;
+    }
+    .tab2Options{
+        top: 75px;
+    }
+    .articles{
+        width:70%;
+        margin: 25px auto;
+    }
+    .sidetxt{
+        text-align: right;
+    }
+
+    .text-holder{
+        padding: 15px 35px;
+    }
+}

@@ -1,0 +1,32 @@
+.holdercard{
+    padding: 12px 3px 25px 3px;
+    margin: 25px;
+    min-height: 475px;
+    display: grid;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadowLight);
+}
+.holdercard ol{
+    margin: 12px 45px;
+}
+
+.contacts a{
+    display: inline-block;
+    padding: 20px 12px;
+    box-shadow: var(--shadowLight);
+    margin: 12px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: var(--transitionFast);
+}
+.contacts a:hover{
+    box-shadow: var(--themeGlow);
+    scale: 1.1;
+}
+.contacts a i{
+    display: inline-block;
+    font-size: 35px;
+    margin: 12px;
+}

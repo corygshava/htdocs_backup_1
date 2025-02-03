@@ -1,0 +1,4 @@
+the password is (ivebeenpaid) minus the brakets
+paste it in sitedata.bxz
+
+for updating send a post message to fixerupper.php with shava888 as thekey and ivebeenpaid as the text to write

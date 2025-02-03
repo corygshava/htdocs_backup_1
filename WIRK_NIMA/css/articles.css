@@ -1,0 +1,39 @@
+.pagecontent{
+    width: 96%;
+    margin: 35px auto;
+    display: block;
+    min-height: 95vh;
+    height: fit-content;
+}
+
+.newsarticle{
+    border-bottom: 1px solid rgba(160, 160, 160, 0.596);
+}
+.textpart{
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(160, 160, 160, 0.596);
+}
+
+.topBanner{
+    /* min-height: 75vh; */
+    overflow: hidden;
+}
+.topBanner img{
+    border: 7px solid #fff;
+    border-radius: 20px;
+    width: 100%;
+}
+.topBanner img.main{
+    max-height: 75vh;
+}
+.topBanner img.lil{
+    max-height: 37.5vh;
+}
+
+.theimg{
+    width: 70%;
+    margin:12px auto;
+    display: block;
+    box-shadow: 0px 0px 20px rgba(50,50,50,0.1);
+    border-radius: 20px;
+}
