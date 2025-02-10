@@ -1,0 +1,290 @@
+[complete]------------------------------------------------------------------------
+	new visit page
+		make me a code that will attach a submit event listener to a form (set as payform variable). the code will prevent the default submit behaviour. it will then send the form's data as a post request to 'actions/addpayment.php'. if successful or not the code will inform the user using an alert
+
+[interface codes]-----------------------------------------------------------------
+
+[backend codes]-------------------------------------------------------------------
+	checksetup algo
+		consider{
+			all database connection is handled by a file at "actions/connect.php"
+		}
+		write a php code that checks if tables called Farmers, Intakes, Users, Inprocessing, Inventory, Deposits and Sales exist in a database.
+		if they dont the code creates the tables with these fields
+			Users
+				Fields
+					Id int primary key auto_increment
+					Username text
+					Password varchar(30)
+					Date_added datetime
+			visitors
+				fields
+					Id int primary key auto_increment
+					visitor_name text
+					date_added datetime
+					id_no text
+					contact text
+					user_type text
+					status text
+			visits
+				fields
+					Id int primary key auto_increment
+					visitorid int
+					tour_type text
+					date_started datetime
+					date ended datetime
+					payment_code text
+					status text
+					user_checkin int
+					user_checkout int
+			payments
+				fields
+					Id int primary key auto_increment
+					pay_code text
+					pay_amount decimal(10,2)
+					pay_purpose text
+					pay_date datetime
+
+			event_reservations
+				fields
+					Id int primary key auto_increment
+					rsv_date datetime
+					rsv_serial text
+					rsv_status text
+					facility text
+					event_name text
+					event_date datetime
+					event_type text
+					event_description text
+			visit_reservations
+				fields
+					Id int primary key auto_increment
+					rsv_date datetime
+					rsv_serial text
+					rsv_status text
+					visitor_id int
+			feedback
+				fields
+					Id int primary key auto_increment
+					fbk_date datetime
+					fbk_status text
+					fbk_text text
+					visitor_id int
+			systemdata
+				fields
+					Id int primary key auto_increment
+					date_changed datetime
+					date_added datetime
+					itemname text
+					itemvalue text
+					itemdata text
+		also modify all fields with a datetime data type to always use the current timestamp as their default value
+
+	setup aftereffects algo
+		considering this is the data i want to add {
+			"utype_local_adult" : 15000,
+			"utype_foreign_child" : 7000,
+			"utype_foreign_adult" : 5000,
+			"utype_local_child" : 2000
+			"tour_halfday" : 5000,
+			"tour_fullday" : 11000,
+			"tour_private" : 12000,
+			"tour_multiday_2" : 24000,
+			"tour_multiday_3" : 36000,
+			"tour_multiday_4" : 48000,
+			"tour_multiday_5" : 60000,
+			"tour_multiday_6" : 72000,
+			"tour_multiday_7" : 84000,
+			"tour_VIP" : 20000,
+			"tour_Family" : 17500,
+			"tour_Night" : 9000
+			"Animal orphanage" : 25000,
+			"Kifaru ark" : 25000,
+			"black rhino sanctuary" : 25000,
+			"Ivory monument" : 25000,
+			"Hippo pools" : 25000,
+			"Camping site" : 25000,
+			"Conference hall" : 25000,
+		}
+		add some code that will add this data into the systemdata table in this format ((current time and date),(current time and date),(property name),(property value),"") as values for (date_changed, date_added, itemname, itemvalue, itemdata)
+
+	login code
+		consider {
+			all database connection is handled by a file at "connect.php"
+			the table users exists in a connected database and has the fields (username and password)
+			variables for (username,password) have been passed via POST
+			the code will inform the user if the username exists in the respective table and 
+			if the password is correct at separate points in the code
+		}
+
+		write a php code that will verify if theres a record in users that has the entered username and password combination,
+		provided the username and password combination exists a cookie called currentusername is to be set as 
+		the entered username
+
+	addsystemdata algo
+		consider {
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table systemdata exists in a connected database and has the fields (date_changed,itemname,itemvalue)
+			variables for (prefix,theval,theamt) have been passed via POST
+		}
+		write me php code that will check if the data hass been passed and add data to the system data table in the format ((current date and time),(prefix+theval),theamt) as values for (date_changed,itemname,itemvalue) and inform the user if it was successful
+
+	editsystemdata algo
+		consider {
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table systemdata exists in a connected database and has the fields (date_changed,itemname,itemvalue)
+			variables for (id,prefix,theval,theamt) have been passed via POST
+		}
+		write me php code that will check if the data has been passed. if it has it will check if there is a value in the systemdata table with the passed id. if there is it updates data in the system data table in the format ((current date and time),(prefix+theval),theamt) as values for (date_changed,itemname,itemvalue) where the id is the same as passed and inform the user if it was successful
+
+	editsystemdata algo
+		consider {
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table systemdata exists in a connected database and has the fields (id)
+			variables for (id) have been passed via POST
+		}
+		write me php code that checks if the data as been passed and deletes the record with the corresponding id in the table and informs the user if successful
+
+	new_visitor worker algo
+		consider {
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table systemdata exists in a connected database and has the fields (itemname,itemvalue)
+		}
+		write me a php code that will get values for (itemvalue) for all records whose itemname contains "utype_" and display them on screen
+
+	add visitor algo
+		consider {
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table visitors exists in a connected database and has the fields (visitor_name,id_no, contact, user_type, status)
+			values for (v_name, v_id, v_type, v_contact) have been passed via post
+		}
+		add me a record onto the table in this format (v_name, v_id, v_type, v_contact,"released") as values for (visitor_name, id_no, user_type, contact,status) and inform the user if it worked or not
+
+	edit visitor algo
+		consider {
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table visitors exists in a connected database and has the fields (Id,visitor_name,id_no, contact)
+			values for (id, myname, myid, mycontact) have been passed via post
+		}
+		writ me a php code that will check if theres a record with the passed id, if there is the code should update its details to the ones passed via post
+
+	search visitor algo
+		basically show them all but search for ones that contain a filter in the name,id_no or contact
+
+	add payment
+		consider {
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table payments exists in a connected database and has the fields (pay_code, pay_amount, pay_purpose)
+			values for (v_code, amount_to_pay, pay_purpose) have been passed via post
+		}
+		write me a php code that will check if all the values have been passed via post also make it to check if theres a pay_code with the same v_code and doesnt add if there is,it afterwards informs the user if the request worked or failed
+
+	list payments
+
+	add visits algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table payments exists in a connected database and has the fields (visitorid, tour_type, date_started, date_ended, payment_code, status)
+			values for (visitor_id, visit_type, visit_price, payment_verified, payment_code, visitor_type) have been passed via post
+		}
+		write php code that checks if all the values have been passed via post. if they have{
+			the code updates the visitor table by setting (status = "visiting") where the value of (id) corresponds with the given visitor_id.
+			then it adds a new record to the visits table in the format (visitor_id, visit_type, payment_verified, (current date and time), payment_code, "ongoing") as values for (visitorid, tour_type, date_started, payment_code, status). make it inform the user if there was any error anywhere
+		}
+
+	checkout algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			the table visits exists in a connected database and has the fields (id, date_ended, status)
+			the table visitors exists in a connected database and has the fields (id, status)
+			the table feedback exists in a connected database and has the fields (visitor_id, fbk_text, fbk_review)
+			values for (visit_id, visitor_id, review_score, review_score, feedback_txt) have been passed via post
+		}
+		write a php code that will check if all the values have been passed. if they have{
+			it updates the visits table where the id is the same as visit_id and sets date_ended to the current date and time and status to "checked out",
+			it updates the visitors table and sets status to "released" where id is the same as visitor_id,
+			it adds a new record to feedback (visitor_id, feedback_txt, review_score) as values for (visitor_id, fbk_text, fbk_review)
+		}
+
+	checkeventavl algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			a table event_reservations exists and has these fields (rsv_date, facility)
+			values for (date,fac) have been passed via post
+		}
+		write me a php code that checks if the values have been passed then checks if theres a record whose date is date and whose facility is fac.
+
+	new event algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			a table event_reservations exists and has these fields (rsv_serial, rsv_status, facility, event_name, event_date, event_type, event_description, pay_code)
+			these have been passed via post (event_name, event_date, event_type, event_desc, chosen_facility, payment_code)
+		}
+		write me a php code that checks if the values were passed and adds the values into the event_reservations table with ((random 5 letter string), "pending", chosen_facility, event_name, event_date, event_type, event_description, pay_code) as values for (rsv_date, rsv_serial, rsv_status, facility, event_name, event_date, event_type, event_description, pay_code) and informs the user if it worked
+
+	edit feedback algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			a table feedback exists and has these fields (id,fbk_status)
+			these have been passed via post (id)
+		}
+		write a php code that ensures the values were passed and updates the fbk_status of the record with the id as "read" and informs the user if it worked
+
+	new user algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			a table feedback exists and has these fields (username,password)
+			these have been passed via post (username,password)
+		}
+		write a php code that checks if they have been passed and checks if theres a record that has the username, if there isnt it adds a new record using the given data
+
+	summary algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			tables called feedback,event_reservations,visits,systemdata,visitors,users exist
+		}
+		write me a code that{
+			finds the number of records in event_reservations ($rsv_events)
+			finds the number of records in event_reservations where the value of (event_date) field is in the future ($rsv_upcoming_events)
+			finds the number of records in event_reservations where the value of (event_date) field is in the past ($rsv_passed_events)
+			finds the total number of records in feedback table ($feedback)
+			finds the total number of records in feedback  where the value of (fbk_status) field is not "read" ($newfeedback)
+			finds the number of records in the visits table ($all_visits)
+			finds the number of records in visits where the value of (status) field is "checked out" ($completed_visits)
+			finds the number of records in visits where the value of (status) field is not "checked out" ($ongoing_visits)
+			finds the number of records in visitors table ($visitors)
+			finds the number of records in users table ($users)
+			finds the number of recrods in systemdata where the value of (itemvalue) field contains "fac_" ($facilities)
+			finds the number of recrods in systemdata where the value of (itemvalue) field contains "utype_" ($usretypes)
+			finds the number of recrods in systemdata where the value of (itemvalue) field contains "tour_" ($tourtypes)
+
+			finds the sum of values in (pay_amount) field in payments where the value of (pay_pupose) field is "reserve_visit" ($event_cash)
+			finds the sum of values in (pay_amount) field in payments where the value of (pay_pupose) field is not "reserve_visit" ($visit_cash)
+			finds the sum of values in (pay_amount) field in payments ($totalIncome)
+		}
+
+	summary UI automator
+		considering they will all be displayed in this format{
+			<div class="w3-row items all_visitors">
+				<div class="count">
+					<span>(item number)</span>
+				</div>
+				<div class="caption">
+					(item name)
+				</div>
+			</div>
+		} and that the json will be injected as a string into a web page, make me a javascript code that will take the input and populate a div classed as .infoguy with the data

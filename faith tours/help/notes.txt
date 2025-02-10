@@ -1,0 +1,33 @@
+entry fee depends on 
+	adult or kid
+	length of stay
+
+interactive map + routes
+feedback and reviews
+keep track of visitors
+
+
+important info
+	"utype_local_adult" : 15000,
+	"utype_foreign_child" : 7000,
+	"utype_foreign_adult" : 5000,
+	"utype_local_child" : 2000
+	"tour_halfday" : 5000,
+	"tour_fullday" : 11000,
+	"tour_private" : 12000,
+	"tour_multiday_2" : 24000,
+	"tour_multiday_3" : 36000,
+	"tour_multiday_4" : 48000,
+	"tour_multiday_5" : 60000,
+	"tour_multiday_6" : 72000,
+	"tour_multiday_7" : 84000,
+	"tour_VIP" : 20000,
+	"tour_Family" : 17500,
+	"tour_Night" : 9000
+	"Animal orphanage" : 25000,
+	"Kifaru ark" : 25000,
+	"black rhino sanctuary" : 25000,
+	"Ivory monument" : 25000,
+	"Hippo pools" : 25000,
+	"Camping site" : 25000,
+	"Conference hall" : 25000,

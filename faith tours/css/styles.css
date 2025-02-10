@@ -1,0 +1,161 @@
+.content{
+	/*padding: 50px 20px;*/
+}
+
+/* for the sidemenu */
+
+	nav {
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    align-items: center;
+	    position: sticky;
+	    z-index: 12;
+	    top: 0;
+	    width: 100%;
+	    background-color: var(--containerbg);
+	}
+	.navitem{
+		padding: 7px 15px;
+	}
+	nav button{
+		border-radius: var(--roundness);
+	}
+
+	.sidemenu{
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.2);
+		margin: 0;
+		display: none;
+		z-index: 13;
+	}
+	.sidemenu .menuguy{
+		padding: 12px 15px 75px 15px;
+		width: 100%;
+		max-width: 400px;
+		background: #fff;
+		overflow-y: auto;
+		height: 100vh;
+	}
+	.sidemenu a{
+		width: 80% !important;
+		border-radius: var(--roundness);
+		margin: 2px 0;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.sidemenu a:hover{
+		color: var(--themecolor);
+		translate: 10px 0;
+	}
+
+/* for the footer */
+	footer{
+		padding: 12px 20px;
+		background-color: var(--darkishbg);
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+
+/*for the dash*/
+	.content.dash{
+		padding: 0 !important;
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	.summary,.actions{
+		width: 80%;
+		margin: 20px auto;
+	}
+	.dash h1{
+		text-align: center;
+		text-transform: capitalize;
+	}
+	.summary .count,.summary .caption{
+		display: inline-block;
+		padding: 12px;
+	}
+	.summary .count{
+		max-width: 15%;
+	}
+	.summary .count span {
+	    display: inline-block;
+	    padding: 4px 11px;
+	    font-weight: 800;
+	    background-color: var(--themecolor);
+	    border-radius: var(--roundness);
+	    color: var(--alttextColor);
+	}
+	.summary .caption{
+		width: 80%;
+	}
+	.summary .earnings .amount{
+		font-size: 36px;
+		font-weight: 800;
+		color: var(--themecolor)
+	}
+
+	.actions{
+		padding: 20px 0 0 0;
+	}
+	.linkbox a{
+		text-decoration: none;
+		color: var(--textcolor);
+		border-radius: var(--roundness);
+		width: 70% !important;
+		margin: 12px 0;
+	}
+	.linkbox a:hover{
+		translate: 7px 0px;
+		color: var(--alttextColor);
+		background-color: var(--themecolor);
+	}
+
+/* for the addmenu */
+	.maparea{
+		height: 100vh;
+		overflow: hidden;
+		position: relative;
+		/* cursor: none; */
+	}
+	.maparea img{
+		width: 100%;
+	}
+	.maparea .l1{z-index: 2;}
+	.maparea .l2{z-index: 3;}
+	.maparea .l3{z-index: 4;}
+	.maparea .over{
+		padding: 20px 15px;
+		background-color: rgba(0,0,0,0.7);
+	}
+	.points{
+		filter: brightness(100%);
+		mix-blend-mode: multiply;
+		background-color: transparent !important;
+	}
+	.points .point{
+		opacity: 0;
+		background-color: red;
+		position: absolute;
+		border-radius: var(--roundness);
+	}
+	.points .point:hover,.points .point.current{
+		background-color: green;
+		opacity: 0.7;
+	}
+	.maparea .pointer{
+		font-weight: 800;
+		color: var(--themecolor);
+		border-radius: var(--roundness);
+		padding: 8px 16px;
+		background-color: var(--containerbg);
+		display: inline-block;
+		position: absolute;
+		top:0;
+		left:0;
+	}
