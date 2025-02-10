@@ -3,6 +3,10 @@
     $extraclass = (isset($extraclass)) ? $extraclass : "";
 
     $startpart = ($thepage == "homepage") ? "25" : "5";
+
+    if($thepage == "homepage"){
+    }
+    include 'components/splashloader.php';
 ?>
 
 <nav class="w3-top <?php echo $extraclass;?>" data-curpage="<?php echo $thepage;?>">
@@ -21,12 +25,12 @@
         </div>
     </div>
 
-    <div class="showOnScroll w3-top navbar1 whitenav w3-hide-medium w3-hide-small w3-animate-opacity" data-startat="<?php echo $startpart;?>" data-endat="100" data-method="display" style="display:none">
+    <div class="showOnScroll w3-top navbar1 whitenav w3-hide-medium w3-hide-small w3-animate-opacity" data-startat="<?php echo $startpart;?>" data-endat="100" data-method="display" data-ignoreend="yes" style="display:none">
     </div>
 
     <button class="w3-right w3-button w3-black w3-hide-large" onclick="toggleShow('.navbar2');toggleShowAll('.smallmenu1')"><i class="fa fa-bars"></i></button>
 
-    <div class="w3-bar-block w3-animate-top w3-animate-opacity w3-black navbar2 w3-hide-large" style="display: none;font-size: 25px;" data-shown="0" data-role="smallnav">
+    <div class="w3-bar-block w3-animate-top w3-animate-opacity w3-black navbar2 w3-hide-large" style="display: none;font-size: 18px;" data-shown="0" data-role="smallnav">
         <button class="w3-right w3-button w3-black" onclick="toggleShow('.navbar2');toggleShowAll('.smallmenu1')"><i class="fa fa-close"></i></button>
     </div>
 </nav>

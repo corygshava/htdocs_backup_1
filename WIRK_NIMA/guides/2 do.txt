@@ -1,0 +1,5 @@
+done
+	fix the js scroll error
+
+2 do
+	integrate the splash loader into the nimaEA site

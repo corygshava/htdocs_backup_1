@@ -1,4 +1,5 @@
 :root{
+    --bodybg: #fefefe;
     --primaryColor : #00ff40;
     --complimentaryColor : #00aa4d;
     --gradTrans1 : linear-gradient(to right,transparent,rgba(63, 223, 0, 0.39));

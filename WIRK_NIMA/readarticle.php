@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div class="showOnScroll w3-bottom" data-startat="15" data-endat="90" data-method="display" style="display:none">
+    <div class="showOnScroll w3-bottom" data-startat="15" data-endat="90" data-method="display" data-ignoreend="yes" style="display:none">
         <div class="w3-center bottommenu w3-animate-bottom">
             <div class="smallmenu" style="font-size: 18px;">
                 <a class="themebtn2" href="#pestServices"><i class="fa fa-chevron-left"></i> Previous</a>

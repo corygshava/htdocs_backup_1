@@ -78,9 +78,9 @@ function setuplinks(series,prefix) {
 function ActivateScrollListener() {
     window.onscroll = () => {
         let outxt = document.querySelector('.srolllogTxt');
-        let ratio = Math.floor((Math.floor(window.scrollY) / Math.floor(window.scrollMaxY)) * 100);
+        let ratio = Math.floor((Math.floor(window.scrollY) / Math.floor(window.innerHeight)) * 100);
         if(outxt != undefined){
-            outxt.innerHTML = `${Math.floor(window.scrollY)} / ${Math.floor(window.scrollMaxY)} (${ratio})`;
+            outxt.innerHTML = `${Math.floor(window.scrollY)} / ${Math.floor(window.innerHeight)} (${ratio})`;
         }
 
         checkScrollers();
@@ -88,11 +88,21 @@ function ActivateScrollListener() {
 }
 
 function checkScrollers(ratio) {
-    ratio = (ratio == undefined) ? Math.floor((Math.floor(window.scrollY) / Math.floor(window.scrollMaxY)) * 100) : ratio;
+    ratio = (ratio == undefined) ? Math.floor((Math.floor(window.scrollY) / Math.floor(window.innerHeight)) * 100) : ratio;
     let items = document.querySelectorAll('.showOnScroll');
 
     items.forEach(element => {
         let thecon = (element.dataset.startat <= ratio) && (element.dataset.endat >= ratio);
+        let ignoreend = element.dataset.ignoreend == undefined ? false : element.dataset.ignoreend.toLowerCase() == "yes";
+        let ignorestart = element.dataset.ignorestart == undefined ? false : element.dataset.ignorestart.toLowerCase() == "yes";
+
+        if(ignoreend){
+            thecon = (element.dataset.startat <= ratio);
+        }
+
+        if(ignorestart){
+            thecon = (element.dataset.endat >= ratio);
+        }
 
         if(element.dataset.method != "opacity"){
             element.style.display = thecon ? "block" : "none";

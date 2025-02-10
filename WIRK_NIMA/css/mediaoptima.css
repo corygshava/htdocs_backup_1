@@ -21,7 +21,8 @@
     }
 
     nav a{
-        padding: 25px !important;
+        padding: 15px !important;
+        margin: 12px 0;
     }
     nav a.current{
         margin: 0;
