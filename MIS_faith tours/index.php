@@ -22,10 +22,11 @@
 	<title>Admin dashboard</title>
 </head>
 <body>
-	<div class="standin">
-		<h1>Welcome <b><?php echo $curuser;?></b></h1>
+	<div class="standin topitem">
+		<span>Welcome <b><?php echo $curuser;?></b></span>
 		<hr>
 	</div>
+
 	<div class="content dash">
 		<div class="pagesect summary" id="summ">
 			<h1>System Information</h1>

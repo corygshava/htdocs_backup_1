@@ -102,7 +102,7 @@
 		let dataobj = [
 			{
 				// editor popup
-				action: "edit_visitors.php",
+				action: "edit_visitor.php",
 				labels: ["","Visitor name","ID number","Contact"],
 				inputs: ["id|hidden|0","myname|text|enter your name here","myid|number|enter your new ID number here","mycontact|text|enter your contact here"]
 			},

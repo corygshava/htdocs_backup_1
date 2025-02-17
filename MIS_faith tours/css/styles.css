@@ -159,3 +159,27 @@
 		top:0;
 		left:0;
 	}
+
+
+/* extra stuff */
+	.topitem {
+	    background-color: #222;
+	    background-attachment: fixed;
+	    background-image: url('../images/herobg.png');
+	    background-size: cover;
+	    min-height: 72vh;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    flex-direction: column;
+	    background-position: center;
+	}
+	.topitem span{
+		display: block;
+		font-size: 8vmin !important;
+		color: #fff;
+		text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+	}
+	.topitem span b{
+		color: var(--themecolor);
+	}
