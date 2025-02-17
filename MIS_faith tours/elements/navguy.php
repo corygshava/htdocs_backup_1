@@ -36,7 +36,7 @@
 		<a href="system_data.php" class="w3-bar-item" title="facilities and prices">edit system data</a>
 
 		<h3 class="themetxt">user options</h3>
-		<a href="#summ" class="w3-bar-item">view summary</a>
+		<a href="index.php#summ" class="w3-bar-item">view summary</a>
 		<a href="new_user.php" class="w3-bar-item">add new user</a>
 		<a href="list_users.php" class="w3-bar-item">view users</a>
 		<a href="logout.php" class="w3-bar-item">logout</a>

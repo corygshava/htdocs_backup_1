@@ -1,5 +1,8 @@
 done
 	fix the js scroll error
+	integrate the splash loader into the nimaEA site
+	hero section
 
 2 do
-	integrate the splash loader into the nimaEA site
+	get the 3 thumbs
+	edit the videos

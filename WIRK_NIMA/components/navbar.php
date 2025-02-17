@@ -21,6 +21,7 @@
                 <a href="services.php" class="w3-bar-item w3-button">Services</a>
                 <a href="articles.php" class="w3-bar-item w3-button">Articles</a>
                 <a href="contacts.php" class="w3-bar-item w3-button">Contacts</a>
+                <a href="gallery.php" class="w3-bar-item w3-button">Gallery</a>
             </div>
         </div>
     </div>

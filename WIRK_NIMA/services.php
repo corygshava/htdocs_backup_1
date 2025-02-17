@@ -371,7 +371,7 @@
                 <p style="font-size: 17px;">All Price Quotations Can Only Be Made Upon Inspections And Assessment Of The Extent Of Infestation Of The Premise</p>
             </div>
 
-            <div class="panel1 w3-center">
+            <div class="panel1 w3-center w3-hide">
                 <h2>PRICING</h2>
                 <p>These are the minimum prices for our pest control services</p>
 

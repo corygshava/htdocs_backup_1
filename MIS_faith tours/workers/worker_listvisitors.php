@@ -5,6 +5,7 @@
 	// Query to fetch all records from the visitors table
 	$result = $conn->query("SELECT * FROM visitors ORDER BY status ASC");
 	$outxt = "";
+	$reccount = $result->num_rows;
 
 	// Check if there are any records
 	if ($result->num_rows > 0) {

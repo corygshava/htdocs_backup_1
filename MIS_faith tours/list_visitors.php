@@ -34,7 +34,7 @@
 				<div class="w3-center anc">
 					<h2>all visitors</h2>
 					<hr>
-					<span>showing <b>7</b> visitors</span>
+					<span>showing <b><?php echo $reccount;?></b> visitors</span>
 				</div>
 				<table class="w3-table w3-bordered w3-striped w3-hoverable w3-card-4">
 					<thead>

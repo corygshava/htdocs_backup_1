@@ -2,5 +2,5 @@
 <div class="gap"></div>
 
 <footer>
-	&copy; Faith Tours inc.
+	&copy; NAIROBI NATIONAL PARK TOURISTS  GUIDE SYSTEM
 </footer>

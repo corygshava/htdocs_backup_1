@@ -14,16 +14,24 @@ article cite{
         font-size: 1.4rem;
         font-family: 'impact','fantasy';
     }
+    .myhero .herotxt span.heading b{
+        display: inline-block;
+/*        color: var(--primaryColor);*/
+        background-image: var(--themeGradient);
+        background-clip: text;
+        color: transparent;
+    }
     .myhero .herotxt span.heading{
-        font-size: 55px;
-        font-weight: 800;
+        font-size: 44px;
+        font-family: 'arial';
+        font-weight: 800;   
         letter-spacing: 3px;
         background-image: var(--themeGradient);
         background-clip: text;
         color: transparent;
         text-shadow: var(--shadowDark);
     }
-    .myhero .herotxt a{
+    .myhero .herotxt a,.herolike{
     	padding: 15px 20px;
     	border: 1px solid rgba(255,255,255,0.7);
         border-radius: var(--roundnessMedium);
@@ -34,9 +42,16 @@ article cite{
         text-transform: uppercase;
         transition: 0.5s ease-out;
     }
-    .myhero .herotxt a:hover,.myhero .herotxt a.main{
+    .myhero .herotxt a:hover,.myhero .herotxt a.main,.herolike:hover,.herolike.active{
         background-color: white;
         color: #111;
+    }
+
+    .herolike.active{
+        box-shadow: 0 0 12px cyan;
+    }
+    .herolike{
+        color: #fff;
     }
 
 /* for slideshows */

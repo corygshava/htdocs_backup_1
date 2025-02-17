@@ -24,6 +24,7 @@
 /* common elements */
     *{
         font-family: 'oxygen','calibri',sans-serif;
+        transition: 0.3s ease-out;
     }
     html{
         scroll-behavior: smooth;
