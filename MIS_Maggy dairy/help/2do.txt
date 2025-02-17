@@ -1,0 +1,12 @@
+add_intake
+	make it to pick a list of farmers and their ids from the db
+
+add_sale
+	make it to pick a list of farmers and their ids from the db
+	make it to use xhr to get the total milk the farmer has
+	first button gets farmerinfo and sets it to the amount sold input as min and max costraints
+
+todo
+	change the loader
+	finish admin summary
+	figure access lock

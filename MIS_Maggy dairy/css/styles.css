@@ -1,0 +1,104 @@
+header{
+	padding: 25px;
+}
+header h1 b{
+	color: var(--themecolor);
+}
+.container {
+	margin-top: 50px;
+}
+.card.shadow {
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+}
+.card-header {
+	background: var(--themecolor);
+	color: #fff;
+	text-align: center;
+	font-weight: 800;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.card-body a {
+	display: block;
+	color: var(--textcolor);
+	text-decoration: none;
+	padding: 5px 0;
+	margin: 12px 0;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+.card-body a::before {
+	position: absolute;
+	content: '';
+	z-index: 1;	
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	/* background-image: linear-gradient(90deg,var(--themecolor),transparent,var(--themecolor));*/
+	background-image: linear-gradient(90deg,transparent,var(--themecolor),transparent);
+	filter: brightness(120%);
+	transform: scaleY(0);
+	transition: 0.3s ease-out;
+}
+.card-body:not(.summ) a:hover::before {
+	transform: scaleY(1);
+	opacity: 0.2;
+}
+.card-body:not(.summ) a:hover {
+	/* background: var(--themecolor);*/
+	color: var(--themecolor);
+	scale: 1.2;
+	font-weight: 700;
+}
+
+.summ a{
+	text-align: left;
+}
+.summ a b{
+	margin: 1px 7px 1px 12px;
+	padding: 7px 12px;
+	background: var(--themecolor);
+	color: #fff;
+	display: inline-block;
+	border-radius: var(--roundness);
+}
+.summ a b.gash{
+	background: transparent;
+	color: var(--themecolor);
+	border: 2px solid;
+	width: 120px;
+	text-align: left;
+}
+
+.modal-content.hidemodal{
+	border: none;
+	background: transparent;
+}
+
+/* extra stuff */
+	.topitem {
+	    background-color: #222;
+	    background-attachment: fixed;
+	    background-image: url('../images/herobg.png');
+	    background-size: cover;
+	    min-height: 72vh;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    flex-direction: column;
+	    background-position: center;
+	}
+	.topitem span{
+		display: block;
+		font-size: 8vmin !important;
+		color: #fff !important;
+		text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+	}
+	.topitem span b{
+		color: var(--themecolor);
+	}

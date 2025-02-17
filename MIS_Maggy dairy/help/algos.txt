@@ -1,0 +1,117 @@
+[]
+	new farmer
+		consider{
+			these are the fields i want to add to a table (farmer_name TEXT, id_no number, Password password, date_added DATE, location TEXT, contact text)
+		}make a form for entering the data by making these fields inputs
+
+	new milk records
+		consider{
+			these are the fields i want to add to a table (farmerid number, quantity TEXT, date_brought DATE)
+		}make a form for entering the data by making these fields inputs. note that it will be submitted via post to 'actions/add_milkintake.php'. also dont forget to add the field names as names for the inputs
+
+	new milk sale
+		now rewrite the code keeping in mind the fields are (Transaction_code, Amount_sold, Amount_paid, Date_of_sale) and the action is 'actions/add_milksale.php'
+
+[]
+	checksetup algo
+		consider{
+			all database connection is handled by a file at "actions/connect.php"
+		}
+		write a php code that checks if tables called Farmers, Intakes, Users, Inprocessing, Inventory, Deposits and Sales exist in a database.
+		if they dont the code creates the tables with these fields
+			Users
+				Fields
+					Id int primary key auto_increment
+					Username text
+					Password varchar(30)
+					Date_added datetime
+			farmer
+				fields
+					Id int primary key auto_increment
+					farmer_name text
+					id_no int
+					Password varchar(30)
+					date_added datetime
+					location text
+					contact text
+			milk
+				fields
+					Id int primary key auto_increment
+					farmerid int
+					quantity text
+					date_brought datetime
+			Sales
+				Fields
+					Id int primary key auto_increment
+					Transaction_code text
+					Amount_sold decimal
+					Amount_paid int
+					Date_of_sale datetime
+			system
+				fields
+					Id int primary key auto_increment
+					itemname text
+					itemvalue text
+					date_added datetime
+					date_changed
+		also modify all fields with a datetime data type to always use the current timestamp as their default value
+
+	login algo
+		consider{
+			all database connection is handled by a file at "connect.php"
+			connection variable is $conn
+			tables for farmers (farmer_name,password,id_no) and users (username,password) exist
+			values for (userrole, Username, Password) have been passed via post
+			the code will inform the user if the username exists in the respective table and 
+			if the password is correct at separate points in the code
+		}
+		write a php code that checks if the values have been passed via post. then it checks if the usertype is admin. if it is{
+			it checks if theres a record in users with the same username and password as passed
+		} otherwise{
+			it checks if theres a record in users with the same farmer_name or id_no as (username) and password that has been passed
+		}
+
+	new farmer algo
+		consider{
+			farmers table exists with the fields (farmer_name, id_no, Password, date_added, location, contact)
+			these have been passed via post (farmer_name, id_no, password, location, contact)
+		}
+		write a php code that checks if the data was passed inserts a new record with (farmer_name, id_no, password, (current date and time), location, contact) as values for (farmer_name, id_no, Password, date_added, location, contact) and informs the user if anything went wrong
+
+	edit farmer algo
+		consider{
+			farmers table exists with the fields (id, farmer_name, id_no, Password, location, contact)
+			these have been passed via post (theid, name, upass, id_no, location, contact)
+		}
+		write a php code that checks if the data was passed and updates the record with the same id as theid using (name, id_no, upass, location, contact) as values for (farmer_name, id_no, Password, location, contact) and informs the user if anything went wrong
+
+	list farmers algo
+		consider{
+			connection file is 'actions/connect.php'
+			connection var is $conn
+			table farmers exists with this fields (id, farmer_name, id_no, Password, date_added, location, contact)
+		}
+		write me a php code that shows all records in the table on a web page. consider that i use bootstrap 5 for the interface
+
+	new milkintake algo
+		consider{
+			milk table exists with the fields (farmerid, quantity, date_brought)
+			these have been passed via post (farmerid, quantity)
+		}
+		write a php code that checks if the data was passed inserts a new record with (farmerid, quantity, (current date and time)) as values for (farmerid, quantity, date_brought) and informs the user if anything went wrong.
+
+	list milkintake algo
+		consider{
+			connection file is 'actions/connect.php'
+			connection var is $conn
+			table farmers exists with this fields (id, farmer_name)
+			table milk exists with this fields (id, farmerid, quantity, date_brought)
+		}
+		write me a php code that shows all records in the table on a web page. make it that it adds an extra column on the table "farmer name" where it gets the farmer name of the farmer whose id is the current one. consider that i use bootstrap 5 for the interface
+
+	new milk sale
+		consider{
+			sales table exists with the fields (farmerid, Transaction_code, quantity, Amount_paid,status)
+			these have been passed via post (farmerid, Transaction_code, quantity_sold, Amount_to_pay)
+		}
+		write a php code that checks if the data was passed inserts a new record with (farmerid, Transaction_code, quantity_sold, Amount_to_pay) as values for (farmerid, Transaction_code, quantity, Amount_paid) and informs the user if anything went wrong
